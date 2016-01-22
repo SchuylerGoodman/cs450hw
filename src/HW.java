@@ -1,3 +1,8 @@
+import com.sun.javaws.exceptions.InvalidArgumentException;
+import histogram.GrayscaleHistogram;
+import histogram.IHistogram;
+import histogram.IHistogramBucket;
+import histogram.Pixel;
 import io.ImageInputStream;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
@@ -142,18 +147,21 @@ public class HW
 		BufferedImage outputImage = CS450.getImageB();
 		int width = outputImage.getWidth();
 		int height = outputImage.getHeight();
+		int pixelCount = width * height;
 
 		HistogramDataset dataset = new HistogramDataset();
 		dataset.setType(HistogramType.FREQUENCY);
-		double[] values = new double[width * height];
+		double[] values = new double[pixelCount];
 
 		float[] hsb = new float[3];
+		int[] rgb = new int[3];
 		for (int x = 0; x < width; ++x) {
 			for (int y = 0; y < height; ++y) {
-				int rgb = outputImage.getRGB(x, y);
-				int red = (rgb >> 16) & 0xFF;
-				int green = (rgb >> 8) & 0xFF;
-				int blue = rgb & 0xFF;
+				int rgbHash = outputImage.getRGB(x, y);
+				this.parseRGBHash(rgbHash, rgb);
+				int red = rgb[0];
+				int green = rgb[1];
+				int blue = rgb[2];
 				Color.RGBtoHSB(red, green, blue, hsb);
 
 				float brightness = hsb[2];
@@ -173,11 +181,98 @@ public class HW
 		CS450.saveChart(chart, 800, 450);
 	}
 
+	public void doHistogramEqualization() {
+		BufferedImage inputImage = CS450.getImageA();
+		int width = inputImage.getWidth();
+		int height = inputImage.getHeight();
+
+		IHistogram histogram = new GrayscaleHistogram(inputImage);
+
+		BufferedImage outputImage = new BufferedImage(width, height, inputImage.getType());
+
+		try {
+			IHistogram equalizedHistogram = histogram.equalize(null);
+
+			this.histogramToImage(equalizedHistogram, outputImage);
+
+			CS450.setImageB(outputImage);
+		}
+		catch (Exception e) {
+		}
+	}
+
+	public void doHistogramSpecification() {
+
+		BufferedImage inputImage = CS450.getImageA();
+		IHistogram inputHistogram = new GrayscaleHistogram(inputImage);
+
+		BufferedImage outputImage = CS450.getImageB();
+		IHistogram outputHistogram = new GrayscaleHistogram(outputImage);
+
+		BufferedImage newOutputImage = new BufferedImage(
+				inputImage.getWidth(),
+				inputImage.getHeight(),
+				inputImage.getType()
+		);
+
+		try {
+			IHistogram specifiedHistogram = inputHistogram.specify(outputHistogram, null);
+
+			this.histogramToImage(specifiedHistogram, newOutputImage);
+
+			CS450.setImageA(newOutputImage);
+		}
+		catch (Exception e) {
+		}
+	}
+
 	public void doSave()
 	{
 		BufferedImage img = CS450.getImageB();
 
 		CS450.saveImage(img);
+	}
+
+	private int[] parseRGBHash(int rgbHash, int[] rgb) {
+
+		if (rgb == null || rgb.length != 3) {
+			rgb = new int[3];
+		}
+
+		rgb[0] = (rgbHash >> 16) & 0xFF;
+		rgb[1] = (rgbHash >> 8) & 0xFF;
+		rgb[2] = rgbHash & 0xFF;
+
+		return rgb;
+	}
+
+	private void histogramToImage(IHistogram histogram, BufferedImage out) throws InvalidArgumentException {
+
+		if (out == null) {
+			throw new InvalidArgumentException(new String[] {"out image cannot be null."});
+		}
+
+		// For every bucket in the histogram
+		float[] hsb = new float[3];
+		int[] rgb = new int[3];
+		for (int i = 0; i < histogram.getNumberOfLevels(); ++i) {
+
+			IHistogramBucket bucket = histogram.getLevelValues(i);
+
+			// For every pixel in the bucket, set correct intensity in output image
+			for (Pixel pixel : bucket) {
+
+				// Get the HSB of the pixel to preserve hue and saturation
+				int rgbHash = pixel.getRGB();
+				this.parseRGBHash(rgbHash, rgb);
+				Color.RGBtoHSB(rgb[0], rgb[1], rgb[2], hsb);
+
+				// Set the intensity of the pixel in the output image to normalized index
+				hsb[2] = i / 255.0f;
+				rgbHash = Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]);
+				out.setRGB(pixel.getX(), pixel.getY(), rgbHash);
+			}
+		}
 	}
 }
 
