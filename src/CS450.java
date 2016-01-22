@@ -7,8 +7,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.lang.reflect.Method;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
 import io.ImageInputStream;
 import io.ImageOutputStream;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
 
 /**
  * Created by BaronVonBaerenstein on 1/7/2016.
@@ -160,6 +163,38 @@ public class CS450
 		}
 		catch (Exception e)
 		{
+			e.printStackTrace();
+		}
+	}
+
+	public static void saveChart(JFreeChart chart, int width, int height)
+	{
+		try
+		{
+			int val = fileChooser.showSaveDialog(window);
+
+			if (val == JFileChooser.APPROVE_OPTION)
+			{
+				File file = fileChooser.getSelectedFile();
+				int dot = file.getName().lastIndexOf('.');
+				String suffix = file.getName().substring(dot + 1);
+
+				String newTitle = chart.getTitle().getText() + " for \"" + file.getName().substring(0, dot) + "\"";
+				chart.setTitle(newTitle);
+				if (suffix.equals("jpg") || suffix.equals("jpeg"))
+				{
+					ChartUtilities.saveChartAsJPEG(file, chart, width, height);
+				}
+				else if (suffix.equals("png"))
+				{
+					ChartUtilities.saveChartAsPNG(file, chart, width, height);
+				}
+				else {
+					throw new InvalidArgumentException(new String[] {"Invalid file type for chart output"});
+				}
+			}
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -1,4 +1,10 @@
 import io.ImageInputStream;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.statistics.HistogramDataset;
+import org.jfree.data.statistics.HistogramType;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -129,6 +135,42 @@ public class HW
 		}
 
 		CS450.setImageB(outputImage);
+	}
+
+	public void doGenerateGrayscaleHistogram() {
+
+		BufferedImage outputImage = CS450.getImageB();
+		int width = outputImage.getWidth();
+		int height = outputImage.getHeight();
+
+		HistogramDataset dataset = new HistogramDataset();
+		dataset.setType(HistogramType.FREQUENCY);
+		double[] values = new double[width * height];
+
+		float[] hsb = new float[3];
+		for (int x = 0; x < width; ++x) {
+			for (int y = 0; y < height; ++y) {
+				int rgb = outputImage.getRGB(x, y);
+				int red = (rgb >> 16) & 0xFF;
+				int green = (rgb >> 8) & 0xFF;
+				int blue = rgb & 0xFF;
+				Color.RGBtoHSB(red, green, blue, hsb);
+
+				float brightness = hsb[2];
+				values[height * x + y] = Math.round(brightness * 255);
+			}
+		}
+
+		dataset.addSeries("H1", values, 255, 0, 255);
+
+		String plotTitle = "Grayscale Histogram";
+		String xAxis = "Value";
+		String yAxis = "Frequency";
+		PlotOrientation orientation = PlotOrientation.VERTICAL;
+
+		JFreeChart chart = ChartFactory.createHistogram(plotTitle, xAxis, yAxis, dataset, orientation, false, false, false);
+
+		CS450.saveChart(chart, 800, 450);
 	}
 
 	public void doSave()
