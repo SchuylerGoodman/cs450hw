@@ -82,6 +82,11 @@ public class GrayscaleHistogram implements IHistogram {
         // Get mapping from input image space to equalized space.
         List<Integer> map = GrayscaleHistogram.getHistogramEqualizationMap(this);
 
+        System.out.println("Index,MapsTo");
+        for (int i = 0; i < map.size(); ++i) {
+            System.out.println(String.format("%d,%d",i,map.get(i)));
+        }
+
         // Map histogram to equalized space.
         out = this.mapHistogram(map, out);
 
