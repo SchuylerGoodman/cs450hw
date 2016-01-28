@@ -3,24 +3,16 @@ import histogram.GrayscaleHistogram;
 import histogram.IHistogram;
 import histogram.IHistogramBucket;
 import histogram.Pixel;
-import io.ImageInputStream;
+import kernel.*;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.image.*;
-import java.io.File;
-import java.lang.reflect.Method;
-import java.util.HashMap;
 import javax.imageio.*;
-import javax.imageio.stream.ImageOutputStream;
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
 
 
 public class HW
@@ -233,6 +225,31 @@ public class HW
 		CS450.saveImage(img);
 	}
 
+	public void doFilter() {
+
+		String filterChoice = CS450.prompt("Choose filter type", KernelFactory.CHOICES, "Uniform Blur");
+
+		KernelFactory factory = new KernelFactory();
+
+		try {
+			BufferedImage inputImage = CS450.getImageA();
+
+			BufferedImage outputImage = new BufferedImage(
+					inputImage.getWidth(),
+					inputImage.getHeight(),
+					inputImage.getType()
+			);
+
+			IBorderPolicy borderPolicy = new PaddedBorder(new int[] { 0, 0, 0 }, inputImage);
+			IKernel kernel = factory.create(filterChoice);
+			kernel.apply(outputImage, borderPolicy);
+
+			CS450.setImageB(outputImage);
+		}
+		catch (Exception e) {
+		}
+	}
+
 	private int[] parseRGBHash(int rgbHash, int[] rgb) {
 
 		if (rgb == null || rgb.length != 3) {
@@ -273,6 +290,13 @@ public class HW
 				out.setRGB(pixel.getX(), pixel.getY(), rgbHash);
 			}
 		}
+	}
+
+	private BufferedImage bufferedImageDeepCopy(BufferedImage bi) {
+		ColorModel cm = bi.getColorModel();
+		boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
+		WritableRaster raster = bi.copyData(null);
+		return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
 	}
 }
 
