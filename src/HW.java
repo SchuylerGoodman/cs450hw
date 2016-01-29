@@ -12,6 +12,7 @@ import org.jfree.data.statistics.HistogramType;
 
 import java.awt.*;
 import java.awt.image.*;
+import java.util.Arrays;
 import javax.imageio.*;
 
 
@@ -278,12 +279,14 @@ public class HW
 		BufferedImage thresholded = ImageHelper.threshold(blurred, null);
 
 		// To make it slightly better, execute the next 6 lines, as well.
+		///*
 		BufferedImage edged = new BufferedImage(thresholded.getWidth(), thresholded.getHeight(), thresholded.getType());
 		IBorderPolicy edgeBorderPolicy = new PaddedBorder(new int[] {0, 0, 0}, thresholded);
 		IKernel edgeKernel = new EdgeDetection();
 		edgeKernel.apply(edged, edgeBorderPolicy);
 
 		thresholded = ImageHelper.threshold(edged, null);
+		//*/
 
 		try {
 			Pixel centerOfBalance = ImageHelper.getWhiteCenterOfBalance(thresholded);
@@ -298,6 +301,20 @@ public class HW
 		}
 		catch (Exception e) {
 			CS450.message(String.format("Could not find center of balance - %s", e.getMessage()));
+		}
+	}
+
+	public void doAverage() {
+
+		BufferedImage[] images = CS450.openImages();
+
+		try {
+			BufferedImage averageImage = ImageHelper.averageImages(Arrays.asList(images));
+
+			CS450.setImageB(averageImage);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 

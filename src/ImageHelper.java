@@ -9,6 +9,8 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
+import java.util.*;
+import java.util.List;
 
 /**
  * Created by BaronVonBaerenstein on 1/29/2016.
@@ -158,5 +160,58 @@ public final class ImageHelper {
         aveY /= whiteBucket.size();
 
         return new Pixel(aveX, aveY, bi.getRGB(aveX, aveY));
+	}
+
+	public static BufferedImage averageImages(Collection<BufferedImage> images) throws InvalidArgumentException {
+
+		if (images.isEmpty()) {
+			throw new InvalidArgumentException(new String[] {"Image collection cannot be empty."});
+		}
+
+		int width = 0;
+		int height = 0;
+
+		BufferedImage lastImage = null;
+		List<Raster> rasterList = new ArrayList<>();
+		for (BufferedImage image : images) {
+            width = image.getWidth();
+            height = image.getHeight();
+			if (width <= 0 || height <= 0 ||
+					(lastImage != null && (width != lastImage.getWidth() || height != lastImage.getHeight()))) {
+				throw new InvalidArgumentException(new String[] {"One or more images has invalid dimensions."});
+			}
+			rasterList.add(image.getRaster());
+			lastImage = image;
+		}
+
+		BufferedImage output = new BufferedImage(width, height, lastImage.getType());
+		WritableRaster outputRaster = output.getRaster();
+		int bandCount = 4;
+		int[] argb = new int[bandCount];
+		int[] argbAve = new int[bandCount];
+		for (int x = 0; x < width; ++x) {
+			for (int y = 0; y < height; ++y) {
+
+				// Empty average array
+				Arrays.fill(argbAve, 0);
+
+                // Get argb values for pixel and add to average value.
+				for (Raster raster : rasterList) {
+					raster.getPixel(x, y, argb);
+					for (int i = 0; i < bandCount; ++i) {
+						argbAve[i] += argb[i];
+					}
+				}
+
+				// Average argb values.
+				for (int i = 0; i < bandCount; ++i) {
+					argbAve[i] /= rasterList.size();
+				}
+
+				outputRaster.setPixel(x, y, argbAve);
+			}
+		}
+
+		return output;
 	}
 }

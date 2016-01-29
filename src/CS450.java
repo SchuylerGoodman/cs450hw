@@ -144,6 +144,33 @@ public class CS450
 		return null;
 	}
 
+	public static BufferedImage[] openImages() {
+		try {
+			fileChooser.setMultiSelectionEnabled(true);
+			int val = fileChooser.showOpenDialog(window);
+
+			if (val == JFileChooser.APPROVE_OPTION) {
+				File[] files = fileChooser.getSelectedFiles();
+
+				BufferedImage[] images = new BufferedImage[files.length];
+				for (int i = 0; i < files.length; ++i) {
+					File file = files[i];
+					images[i] = ImageIO.read(file);
+				}
+
+				return images;
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			fileChooser.setMultiSelectionEnabled(false);
+		}
+
+		return null;
+	}
+
 	public static void saveImage(BufferedImage img)
 	{
 		try
