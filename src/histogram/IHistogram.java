@@ -22,4 +22,6 @@ public interface IHistogram {
     IHistogram specify(IHistogram target, IHistogram out) throws Exception;
 
     void reset();
+
+    int getThresholdValue();
 }

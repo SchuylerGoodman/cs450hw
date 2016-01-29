@@ -129,8 +129,9 @@ public class CS450
 			{
 				File file = fileChooser.getSelectedFile();
 
-                ImageInputStream iis = new ImageInputStream(file);
-                BufferedImage img = iis.read();
+				BufferedImage img = ImageIO.read(file);
+                //ImageInputStream iis = new ImageInputStream(file);
+                //BufferedImage img = iis.read();
 
 				return img;
 			}
@@ -153,12 +154,11 @@ public class CS450
 			{
 				File file = fileChooser.getSelectedFile();
 				int dot = file.getName().lastIndexOf('.');
-				String suffix = file.getName().substring(dot + 1);
-				ImageOutputStream out = new ImageOutputStream(file);
-				if (suffix.equals("pgm")) {
-					out.writePGM(img);
+				String format = file.getName().substring(dot + 1);
+
+				if (!ImageIO.write(img, format, file)) {
+					throw new InvalidArgumentException(new String[] {"Invalid file format"});
 				}
-				out.close();
 			}
 		}
 		catch (Exception e)
@@ -227,6 +227,13 @@ public class CS450
 		);
 
 		return (String) answer;
+	}
+
+	public static void message(String message) {
+		JOptionPane.showMessageDialog(
+				window,
+				message
+		);
 	}
 
 	private static void setupSwingComponents()

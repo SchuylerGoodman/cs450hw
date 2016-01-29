@@ -122,6 +122,53 @@ public class GrayscaleHistogram implements IHistogram {
         }
     }
 
+    @Override
+    public int getThresholdValue() {
+
+        // Use Otsu's Method to determine threshold that minimizes spread of high and low intensity values.
+        int total = this.getTotalPixels();
+
+        float sum = 0;
+        for (int t = 0; t < this.getNumberOfLevels(); ++t) {
+            sum += t * this.buckets.get(t).size();
+        }
+
+        float sumBackground = 0;
+        int weightBackground = 0;
+        int weightForeground = 0;
+
+        float maxVariance = 0;
+        int threshold = 0;
+
+        for (int t = 0; t < this.getNumberOfLevels(); ++t) {
+
+            IHistogramBucket bucket = this.buckets.get(t);
+
+            weightBackground += bucket.size();
+            if (weightBackground == 0) continue;
+
+            weightForeground = total - weightBackground;
+            if (weightForeground == 0) break;
+
+            sumBackground += (float) (t * bucket.size());
+
+            float meanBackground = sumBackground / weightBackground;
+            float meanForeground = (sum - sumBackground) / weightForeground;
+
+            float varianceBetween = (float) weightBackground
+                    * (float) weightForeground
+                    * (meanBackground - meanForeground)
+                    * (meanBackground - meanForeground);
+
+            if (varianceBetween > maxVariance) {
+                maxVariance = varianceBetween;
+                threshold = t;
+            }
+        }
+
+        return threshold;
+    }
+
     private IHistogram mapHistogram(List<Integer> map, IHistogram out) throws Exception {
 
         // Initialize out histogram if necessary.
@@ -158,6 +205,8 @@ public class GrayscaleHistogram implements IHistogram {
         int levels = 0;
         switch (image.getType()) {
             case BufferedImage.TYPE_USHORT_GRAY:
+            case BufferedImage.TYPE_BYTE_GRAY:
+            case BufferedImage.TYPE_3BYTE_BGR:
             case BufferedImage.TYPE_INT_RGB:
                 levels = 256;
                 break;

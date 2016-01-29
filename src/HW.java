@@ -40,14 +40,18 @@ public class HW
 
 	public void doThreshold()
 	{
-		String threshold = CS450.prompt("threshold (0 - 255)", "128");
-		if (threshold == null) return;
-		int t = Integer.parseInt(threshold);
+		//String threshold = CS450.prompt("threshold (0 - 255)", "128");
+		//if (threshold == null) return;
+		//int t = Integer.parseInt(threshold);
 
 		BufferedImage inputImage = CS450.getImageA();
 		int width = inputImage.getWidth();
 		int height = inputImage.getHeight();
 		BufferedImage outputImage = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
+
+		GrayscaleHistogram inputHistogram = new GrayscaleHistogram(inputImage);
+		int t = inputHistogram.getThresholdValue();
+		System.out.println(t);
 
 		WritableRaster in = inputImage.getRaster();
 		WritableRaster out = outputImage.getRaster();
@@ -250,6 +254,20 @@ public class HW
 		}
 	}
 
+	public void doDifference() {
+		BufferedImage first = CS450.getImageA();
+		BufferedImage second = CS450.getImageB();
+
+		BufferedImage out = this.difference(first, second);
+
+		CS450.setImageB(out);
+	}
+
+	//public void doDetectMissingObject() {
+	//	BufferedImage fullImage = CS450.getImageA();
+	//	BufferedImage incompleteImage = CS450.getImageB();
+	//}
+
 	private int[] parseRGBHash(int rgbHash, int[] rgb) {
 
 		if (rgb == null || rgb.length != 3) {
@@ -290,6 +308,34 @@ public class HW
 				out.setRGB(pixel.getX(), pixel.getY(), rgbHash);
 			}
 		}
+	}
+
+	private BufferedImage difference(BufferedImage first, BufferedImage second) {
+
+		int width = first.getWidth();
+		int height = second.getHeight();
+
+		BufferedImage output = new BufferedImage(width, height, first.getType());
+
+		int[] firstColor = new int[3];
+		int[] secondColor = new int[3];
+		int[] outColor = new int[3];
+		for (int x = 0; x < width; ++x) {
+			for (int y = 0; y < height; ++y) {
+				int firstHash = first.getRGB(x, y);
+				this.parseRGBHash(firstHash, firstColor);
+				int secondHash = second.getRGB(x, y);
+				this.parseRGBHash(secondHash, secondColor);
+				outColor[0] = Math.abs(firstColor[0] - secondColor[0]);
+				outColor[1] = Math.abs(firstColor[1] - secondColor[1]);
+				outColor[2] = Math.abs(firstColor[2] - secondColor[2]);
+
+				int diff = (outColor[0] << 16) | (outColor[1] << 8) | outColor[2];
+				output.setRGB(x, y, diff);
+			}
+		}
+
+		return output;
 	}
 
 	private BufferedImage bufferedImageDeepCopy(BufferedImage bi) {
