@@ -154,7 +154,7 @@ public class HW
 		for (int x = 0; x < width; ++x) {
 			for (int y = 0; y < height; ++y) {
 				int rgbHash = outputImage.getRGB(x, y);
-				this.parseRGBHash(rgbHash, rgb);
+				ImageHelper.parseRGBHash(rgbHash, rgb);
 				int red = rgb[0];
 				int green = rgb[1];
 				int blue = rgb[2];
@@ -189,7 +189,7 @@ public class HW
 		try {
 			IHistogram equalizedHistogram = histogram.equalize(null);
 
-			this.histogramToImage(equalizedHistogram, outputImage);
+			ImageHelper.histogramToImage(equalizedHistogram, outputImage);
 
 			CS450.setImageB(outputImage);
 		}
@@ -214,7 +214,7 @@ public class HW
 		try {
 			IHistogram specifiedHistogram = inputHistogram.specify(outputHistogram, null);
 
-			this.histogramToImage(specifiedHistogram, newOutputImage);
+			ImageHelper.histogramToImage(specifiedHistogram, newOutputImage);
 
 			CS450.setImageA(newOutputImage);
 		}
@@ -258,91 +258,49 @@ public class HW
 		BufferedImage first = CS450.getImageA();
 		BufferedImage second = CS450.getImageB();
 
-		BufferedImage out = this.difference(first, second);
+		BufferedImage out = ImageHelper.difference(first, second, null);
 
 		CS450.setImageB(out);
 	}
 
-	//public void doDetectMissingObject() {
-	//	BufferedImage fullImage = CS450.getImageA();
-	//	BufferedImage incompleteImage = CS450.getImageB();
-	//}
+	public void doDetectMissingObject() {
 
-	private int[] parseRGBHash(int rgbHash, int[] rgb) {
+		BufferedImage fullImage = CS450.getImageA();
+		BufferedImage incompleteImage = CS450.getImageB();
 
-		if (rgb == null || rgb.length != 3) {
-			rgb = new int[3];
+		BufferedImage difference = ImageHelper.difference(fullImage, incompleteImage, null);
+		BufferedImage blurred = new BufferedImage(difference.getWidth(), difference.getHeight(), difference.getType());
+
+		IBorderPolicy blurBorderPolicy = new PaddedBorder(new int[] {0, 0, 0}, difference);
+		IKernel blurKernel = new UniformBlur(2);
+		blurKernel.apply(blurred, blurBorderPolicy);
+
+		BufferedImage thresholded = ImageHelper.threshold(blurred, null);
+
+		// To make it slightly better, execute the next 6 lines, as well.
+		BufferedImage edged = new BufferedImage(thresholded.getWidth(), thresholded.getHeight(), thresholded.getType());
+		IBorderPolicy edgeBorderPolicy = new PaddedBorder(new int[] {0, 0, 0}, thresholded);
+		IKernel edgeKernel = new EdgeDetection();
+		edgeKernel.apply(edged, edgeBorderPolicy);
+
+		thresholded = ImageHelper.threshold(edged, null);
+
+		try {
+			Pixel centerOfBalance = ImageHelper.getWhiteCenterOfBalance(thresholded);
+
+			CS450.message(
+					String.format(
+							"Center of balance is at (x, y) = (%d, %d)",
+							centerOfBalance.getX(),
+							centerOfBalance.getY()
+					)
+			);
 		}
-
-		rgb[0] = (rgbHash >> 16) & 0xFF;
-		rgb[1] = (rgbHash >> 8) & 0xFF;
-		rgb[2] = rgbHash & 0xFF;
-
-		return rgb;
-	}
-
-	private void histogramToImage(IHistogram histogram, BufferedImage out) throws InvalidArgumentException {
-
-		if (out == null) {
-			throw new InvalidArgumentException(new String[] {"out image cannot be null."});
-		}
-
-		// For every bucket in the histogram
-		float[] hsb = new float[3];
-		int[] rgb = new int[3];
-		for (int i = 0; i < histogram.getNumberOfLevels(); ++i) {
-
-			IHistogramBucket bucket = histogram.getLevelValues(i);
-
-			// For every pixel in the bucket, set correct intensity in output image
-			for (Pixel pixel : bucket) {
-
-				// Get the HSB of the pixel to preserve hue and saturation
-				int rgbHash = pixel.getRGB();
-				this.parseRGBHash(rgbHash, rgb);
-				Color.RGBtoHSB(rgb[0], rgb[1], rgb[2], hsb);
-
-				// Set the intensity of the pixel in the output image to normalized index
-				hsb[2] = i / 255.0f;
-				rgbHash = Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]);
-				out.setRGB(pixel.getX(), pixel.getY(), rgbHash);
-			}
+		catch (Exception e) {
+			CS450.message(String.format("Could not find center of balance - %s", e.getMessage()));
 		}
 	}
 
-	private BufferedImage difference(BufferedImage first, BufferedImage second) {
 
-		int width = first.getWidth();
-		int height = second.getHeight();
-
-		BufferedImage output = new BufferedImage(width, height, first.getType());
-
-		int[] firstColor = new int[3];
-		int[] secondColor = new int[3];
-		int[] outColor = new int[3];
-		for (int x = 0; x < width; ++x) {
-			for (int y = 0; y < height; ++y) {
-				int firstHash = first.getRGB(x, y);
-				this.parseRGBHash(firstHash, firstColor);
-				int secondHash = second.getRGB(x, y);
-				this.parseRGBHash(secondHash, secondColor);
-				outColor[0] = Math.abs(firstColor[0] - secondColor[0]);
-				outColor[1] = Math.abs(firstColor[1] - secondColor[1]);
-				outColor[2] = Math.abs(firstColor[2] - secondColor[2]);
-
-				int diff = (outColor[0] << 16) | (outColor[1] << 8) | outColor[2];
-				output.setRGB(x, y, diff);
-			}
-		}
-
-		return output;
-	}
-
-	private BufferedImage bufferedImageDeepCopy(BufferedImage bi) {
-		ColorModel cm = bi.getColorModel();
-		boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
-		WritableRaster raster = bi.copyData(null);
-		return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
-	}
 }
 
