@@ -22,7 +22,12 @@ public class MedianBlur extends AlterRGB {
     }
 
     @Override
-    protected int getKernelRadius() {
+    protected int getKernelRadiusX() {
+        return this.kernelRadius;
+    }
+
+    @Override
+    protected int getKernelRadiusY() {
         return this.kernelRadius;
     }
 

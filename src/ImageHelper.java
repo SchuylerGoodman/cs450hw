@@ -97,6 +97,14 @@ public final class ImageHelper {
 
 	public static BufferedImage threshold(BufferedImage inputImage, BufferedImage outputImage) {
 
+		GrayscaleHistogram inputHistogram = new GrayscaleHistogram(inputImage);
+		int threshold = inputHistogram.getThresholdValue();
+
+		return ImageHelper.threshold(inputImage, outputImage, threshold);
+	}
+
+	public static BufferedImage threshold(BufferedImage inputImage, BufferedImage outputImage, double threshold) {
+
 		int width = inputImage.getWidth();
 		int height = inputImage.getHeight();
 		if (outputImage == null
@@ -107,9 +115,6 @@ public final class ImageHelper {
             outputImage = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
 		}
 
-		GrayscaleHistogram inputHistogram = new GrayscaleHistogram(inputImage);
-		int t = inputHistogram.getThresholdValue();
-
 		WritableRaster in = inputImage.getRaster();
 		WritableRaster out = outputImage.getRaster();
 
@@ -119,7 +124,7 @@ public final class ImageHelper {
 			{
 				int val = in.getSample(x, y, 0);
 
-				if (val < t)
+				if (val < threshold)
 				{
 					out.setSample(x, y, 0, 0); // black
 				}

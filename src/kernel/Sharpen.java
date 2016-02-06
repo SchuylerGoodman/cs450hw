@@ -37,7 +37,12 @@ public class Sharpen extends AlterRGB {
     }
 
     @Override
-    protected int getKernelRadius() {
+    protected int getKernelRadiusX() {
+        return KERNEL_RADIUS;
+    }
+
+    @Override
+    protected int getKernelRadiusY() {
         return KERNEL_RADIUS;
     }
 

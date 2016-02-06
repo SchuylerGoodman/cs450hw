@@ -39,45 +39,35 @@ public class HW
 		}
 	}
 
-	public void doThreshold()
-	{
-		//String threshold = CS450.prompt("threshold (0 - 255)", "128");
-		//if (threshold == null) return;
-		//int t = Integer.parseInt(threshold);
+	public void doCustomThreshold() {
+
+		String threshold = CS450.prompt("threshold (0 - 255)", "128");
+		if (threshold == null) return;
+		int t = Integer.parseInt(threshold);
 
 		BufferedImage inputImage = CS450.getImageA();
 		int width = inputImage.getWidth();
 		int height = inputImage.getHeight();
 		BufferedImage outputImage = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
 
-		GrayscaleHistogram inputHistogram = new GrayscaleHistogram(inputImage);
-		int t = inputHistogram.getThresholdValue();
-		System.out.println(t);
-
-		WritableRaster in = inputImage.getRaster();
-		WritableRaster out = outputImage.getRaster();
-
-		for (int y = 0; y < height; y++)
-		{
-			for (int x = 0; x < width; x++)
-			{
-				int val = in.getSample(x, y, 0);
-
-				if (val < t)
-				{
-					out.setSample(x, y, 0, 0); // black
-				}
-				else
-				{
-					out.setSample(x, y, 0, 255); // white
-				}
-			}
-		}
+		ImageHelper.threshold(inputImage, outputImage, t);
 
 		CS450.setImageB(outputImage);
 	}
 
-	public void doColor_Filter()
+	public void doThreshold()
+	{
+		BufferedImage inputImage = CS450.getImageA();
+		int width = inputImage.getWidth();
+		int height = inputImage.getHeight();
+		BufferedImage outputImage = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
+
+		ImageHelper.threshold(inputImage, outputImage);
+
+		CS450.setImageB(outputImage);
+	}
+
+	/*public void doColor_Filter()
 	{
 		String[] choices = {"RED", "GREEN", "BLUE"};
 		String colorChannel = CS450.prompt("color", choices, "GREEN");
@@ -113,7 +103,7 @@ public class HW
 		}
 
 		CS450.setImageB(outputImage);
-	}
+	}*/
 
 	public void doGrayscale() {
 
@@ -178,7 +168,7 @@ public class HW
 		CS450.saveChart(chart, 800, 450);
 	}
 
-	public void doHistogramEqualization() {
+	/*public void doHistogramEqualization() {
 		BufferedImage inputImage = CS450.getImageA();
 		int width = inputImage.getWidth();
 		int height = inputImage.getHeight();
@@ -196,9 +186,9 @@ public class HW
 		}
 		catch (Exception e) {
 		}
-	}
+	}*/
 
-	public void doHistogramSpecification() {
+	/*public void doHistogramSpecification() {
 
 		BufferedImage inputImage = CS450.getImageA();
 		IHistogram inputHistogram = new GrayscaleHistogram(inputImage);
@@ -221,7 +211,7 @@ public class HW
 		}
 		catch (Exception e) {
 		}
-	}
+	}*/
 
 	public void doSave()
 	{
@@ -232,7 +222,7 @@ public class HW
 
 	public void doFilter() {
 
-		String filterChoice = CS450.prompt("Choose filter type", KernelFactory.CHOICES, "Uniform Blur");
+		String filterChoice = CS450.prompt("Choose filter type", KernelFactory.FILTER_CHOICES, "Uniform Blur");
 
 		KernelFactory factory = new KernelFactory();
 
@@ -255,16 +245,16 @@ public class HW
 		}
 	}
 
-	public void doDifference() {
+	/*public void doDifference() {
 		BufferedImage first = CS450.getImageA();
 		BufferedImage second = CS450.getImageB();
 
 		BufferedImage out = ImageHelper.difference(first, second, null);
 
 		CS450.setImageB(out);
-	}
+	}*/
 
-	public void doDetectMissingObject() {
+	/*public void doDetectMissingObject() {
 
 		BufferedImage fullImage = CS450.getImageA();
 		BufferedImage incompleteImage = CS450.getImageB();
@@ -279,14 +269,14 @@ public class HW
 		BufferedImage thresholded = ImageHelper.threshold(blurred, null);
 
 		// To make it slightly better, execute the next 6 lines, as well.
-		///*
+		//
 		BufferedImage edged = new BufferedImage(thresholded.getWidth(), thresholded.getHeight(), thresholded.getType());
 		IBorderPolicy edgeBorderPolicy = new PaddedBorder(new int[] {0, 0, 0}, thresholded);
 		IKernel edgeKernel = new EdgeDetection();
 		edgeKernel.apply(edged, edgeBorderPolicy);
 
 		thresholded = ImageHelper.threshold(edged, null);
-		//*/
+		//
 
 		try {
 			Pixel centerOfBalance = ImageHelper.getWhiteCenterOfBalance(thresholded);
@@ -302,9 +292,9 @@ public class HW
 		catch (Exception e) {
 			CS450.message(String.format("Could not find center of balance - %s", e.getMessage()));
 		}
-	}
+	}*/
 
-	public void doAverage() {
+	/*public void doAverage() {
 
 		BufferedImage[] images = CS450.openImages();
 
@@ -314,6 +304,27 @@ public class HW
 			CS450.setImageB(averageImage);
 		}
 		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}*/
+
+	public void doTemplateMatch() {
+
+		BufferedImage template = CS450.openImage();
+		String filterChoice = CS450.prompt("Choose filter type", KernelFactory.TEMPLATE_CHOICES, "Uniform Blur");
+
+		KernelFactory factory = new KernelFactory();
+
+		BufferedImage in = CS450.getImageA();
+		BufferedImage out = new BufferedImage(in.getWidth(), in.getHeight(), BufferedImage.TYPE_BYTE_GRAY);
+
+		IBorderPolicy edgeBorderPolicy = new PaddedBorder(new int[] {0, 0, 0}, in);
+		try {
+			IKernel matchKernel = factory.create(filterChoice, 15, template);
+			matchKernel.apply(out, edgeBorderPolicy);
+
+			CS450.setImageB(out);
+		} catch (InvalidArgumentException e) {
 			e.printStackTrace();
 		}
 	}

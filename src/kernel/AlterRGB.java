@@ -11,19 +11,19 @@ public abstract class AlterRGB implements IKernel {
 
     @Override
     public void apply(BufferedImage image, IBorderPolicy borderPolicy) {
-        this.alterRGB(image, borderPolicy, this.getKernelRadius());
+        this.alterRGB(image, borderPolicy, this.getKernelRadiusX(), this.getKernelRadiusY());
     }
 
     /**
      * Alters the RGB values for an image according to some function.
-     *
-     * @param image = the image to alter.
+     *  @param image = the image to alter.
      * @param borderPolicy = the border policy for querying values outside the bounds of the image.
-     * @param kernelRadius = the radius of the spacial filtering kernel.
+     * @param kernelRadiusX = the radius of the spacial filtering kernel in the x direction.
+     * @param kernelRadiusY = the radius of the spacial filtering kernel in the y direction.
      */
-    protected void alterRGB(BufferedImage image, IBorderPolicy borderPolicy, int kernelRadius) {
+    protected void alterRGB(BufferedImage image, IBorderPolicy borderPolicy, int kernelRadiusX, int kernelRadiusY) {
 
-        int totalKernelSize = (int) Math.pow(2 * kernelRadius + 1, 2);
+        int totalKernelSize = (2 * kernelRadiusX + 1) * (2 * kernelRadiusY + 1);
 
         int width = image.getWidth();
         int height = image.getHeight();
@@ -37,11 +37,10 @@ public abstract class AlterRGB implements IKernel {
         for (int x = 0; x < width; ++x) {
             for (int y = 0; y < height; ++y) {
 
-
                 // Grab the colors of all the surrounding pixels
                 int p = 0;
-                for (int kx = x - kernelRadius; kx <= x + kernelRadius; ++kx) {
-                    for (int ky = y - kernelRadius; ky <= y + kernelRadius; ++ky) {
+                for (int kx = x - kernelRadiusX; kx <= x + kernelRadiusX; ++kx) {
+                    for (int ky = y - kernelRadiusY; ky <= y + kernelRadiusY; ++ky) {
                         borderPolicy.getPixel(kx, ky, color);
                         reds[p] = color[0]; //borderPolicy.getRed(kx, ky);
                         greens[p] = color[1]; //borderPolicy.getGreen(kx, ky);
@@ -101,11 +100,18 @@ public abstract class AlterRGB implements IKernel {
     }
 
     /**
-     * Gets the radius of the kernel.
+     * Gets the radius of the kernel in the x direction.
      *
      * @return the radius of the kernel as an int.
      */
-    protected abstract int getKernelRadius();
+    protected abstract int getKernelRadiusX();
+
+    /**
+     * Gets the radius of the kernel in the y direction.
+     *
+     * @return the radius of the kernel as an int.
+     */
+    protected abstract int getKernelRadiusY();
 
     /**
      * Alters the RGB values of a pixel according to a kernel.

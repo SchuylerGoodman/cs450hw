@@ -23,7 +23,12 @@ public class EdgeDetection extends AlterRGB {
     private static final int MAX_COLOR = 255;
 
     @Override
-    protected int getKernelRadius() {
+    protected int getKernelRadiusX() {
+        return KERNEL_RADIUS;
+    }
+
+    @Override
+    protected int getKernelRadiusY() {
         return KERNEL_RADIUS;
     }
 
