@@ -208,6 +208,7 @@ public class GrayscaleHistogram implements IHistogram {
             case BufferedImage.TYPE_BYTE_GRAY:
             case BufferedImage.TYPE_3BYTE_BGR:
             case BufferedImage.TYPE_INT_RGB:
+            case BufferedImage.TYPE_4BYTE_ABGR:
                 levels = 256;
                 break;
             default:

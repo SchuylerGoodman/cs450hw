@@ -2,12 +2,15 @@ package kernel;
 
 import com.sun.javaws.exceptions.InvalidArgumentException;
 import javafx.util.Pair;
+import sun.awt.image.ToolkitImage;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -103,8 +106,8 @@ public class TemplateMatch extends AlterRGB {
             blues[i] -= blueAverage;
         }
 
-        kernelRadiusX = (width - 1) / 2;
-        kernelRadiusY = (height - 1) / 2;
+        kernelRadiusX = width / 2;
+        kernelRadiusY = height / 2;
     }
 
     @Override
@@ -118,106 +121,172 @@ public class TemplateMatch extends AlterRGB {
     }
 
     @Override
-    protected void alterRGB(BufferedImage image, IBorderPolicy borderPolicy, int kernelRadiusX, int kernelRadiusy) {
+    protected void alterRGB(BufferedImage image, IBorderPolicy borderPolicy, int kernelRadiusX, int kernelRadiusY,
+                            int windowStartX, int windowStartY, int width, int height)
+    {
+        int baseTemplateWidth = this.baseTemplateImage.getWidth();
+        int baseTemplateHeight = this.baseTemplateImage.getHeight();
+        int minTemplateSize = Math.min(baseTemplateWidth, baseTemplateHeight);
 
-        int width = this.baseTemplateImage.getWidth();
-        int height = this.baseTemplateImage.getHeight();
-        int minTemplateSize = Math.min(width, height);
-
+        // Build pyramid of subsampled templates and images.
         int shrinkFactor = 2;
         Stack<BufferedImage> templatePyramid = new Stack<>();
         Stack<BufferedImage> imagePyramid = new Stack<>();
-        Stack<Pair<BufferedImage, BufferedImage>> pyramid = new Stack<>();
 
-        pyramid.add(new Pair<>(this.baseTemplateImage, image));
-        BufferedImage lastTemplate = this.baseTemplateImage;
-        BufferedImage lastImage = image;
+        templatePyramid.add(this.baseTemplateImage);
+        imagePyramid.add(image);
+
+        BufferedImage smallerTemplate = this.baseTemplateImage;
+        BufferedImage smallerImage = image;
+
         while (minTemplateSize / shrinkFactor > this.minSubsample) {
 
             minTemplateSize /= shrinkFactor;
 
-            BufferedImage smallerTemplate = this.shrinkImage(lastTemplate, shrinkFactor);
-            BufferedImage smallerImage = this.shrinkImage(lastImage, shrinkFactor);
+            // Template cannot have even dimensions.
+            int templateWidth = smallerTemplate.getWidth() / shrinkFactor;
+            int templateHeight = smallerTemplate.getHeight() / shrinkFactor;
+            int imageWidth = smallerImage.getWidth() / shrinkFactor;
+            int imageHeight = smallerImage.getHeight() / shrinkFactor;
 
-            pyramid.add(new Pair<>(smallerTemplate, smallerImage));
+            if (templateWidth % 2 == 0) {
+                templateWidth += 1;
+                imageWidth += 1;
+            }
+
+            if (templateHeight % 2 == 0) {
+                templateHeight += 1;
+                imageHeight += 1;
+            }
+
+            smallerTemplate = this.shrinkImage(smallerTemplate, templateWidth, templateHeight);
+            smallerImage = this.shrinkImage(
+                    smallerImage,
+                    imageWidth,
+                    imageHeight
+            );
+
+            try {
+                File file = new File("img/smallerTemplate.png");
+                ImageIO.write(smallerTemplate, "png", file);
+
+                file = new File("img/smallerImage.png");
+                ImageIO.write(smallerImage, "png", file);
+            }
+            catch (IOException e) {
+                System.err.println(e.getMessage());
+            }
+
+            templatePyramid.add(smallerTemplate);
+            imagePyramid.add(smallerImage);
         }
 
         // Acknowledged, this is a totally hacky loop.
         // I could probably fix it with some kind of extraction refactoring,
         // but I don't really feel like it.
-        Point2D nextPoint = new Point2D.Double(1.0, 1.0);
-        BufferedImage peakImage = pyramid.peek().getValue();
-        int subimageWidth = peakImage.getWidth();
-        int subimageHeight = peakImage.getHeight();
-        for (Pair<BufferedImage, BufferedImage> topPair : pyramid) {
+        int nextX = 0;
+        int nextY = 0;
+        BufferedImage peakImage = imagePyramid.peek();
+        int windowWidth = peakImage.getWidth();
+        int windowHeight = peakImage.getHeight();
+        boolean first = true;
+        while (!templatePyramid.empty() && !imagePyramid.empty()) {
 
-            BufferedImage topTemplate = topPair.getKey();
-            BufferedImage topImage = topPair.getValue();
+            // Double pixel location to go down a level in pyramid.
+            nextX *= 2;
+            nextY *= 2;
 
-            topImage = topImage.getSubimage(
-                    (int) nextPoint.getX() - 1,
-                    (int) nextPoint.getY() - 1,
-                    subimageWidth,
-                    subimageHeight
-            );
+            BufferedImage topTemplate = templatePyramid.pop();
+            BufferedImage topImage = imagePyramid.pop();
+
+            // Bound the coordinates so we get a valid window.
+            nextX = nextX - 1 < 0 ? 0 : nextX - 1;
+            nextY = nextY - 1 < 0 ? 0 : nextY - 1;
+            if (nextX + windowWidth >= topImage.getWidth()) {
+                windowWidth -= (nextX + windowWidth) - topImage.getWidth();
+            }
+
+            if (nextY + windowHeight >= topImage.getHeight()) {
+                windowHeight -= (nextY + windowHeight) - topImage.getHeight();
+            }
+
+            /*topImage = topImage.getSubimage(
+                    nextX - 1,
+                    nextY - 1,
+                    windowWidth,
+                    windowHeight
+            );*/
 
             // Initialize template variables based on the top template in the stack.
             this.initTemplate(topTemplate);
 
             // Change image colors based on correlation.
-            super.alterRGB(topImage, borderPolicy, kernelRadiusX, kernelRadiusy);
-
-            // Find the point with highest intensity.
-            Point2D maxPoint = this.getBrightestPixel(topImage);
-
-            // Since we are going to want 3x3 subimages (because that's how this is faster),
-            // we need to preserve the overall location of the search point.
-            // So we get what it was, add where the max was, and then expand that and search again.
-            nextPoint.setLocation(
-                    (nextPoint.getX() + maxPoint.getX()) * shrinkFactor,
-                    (nextPoint.getY() + maxPoint.getY()) * shrinkFactor
+            super.alterRGB(
+                    topImage,
+                    borderPolicy,
+                    this.kernelRadiusX,
+                    this.kernelRadiusY,
+                    nextX,
+                    nextY,
+                    windowWidth,
+                    windowHeight
             );
 
-            subimageWidth = 3;
-            subimageHeight = 3;
+            if (first) {
+                try {
+                    File file = new File("img/match_image.png");
+                    ImageIO.write(topImage, "png", file);
+
+                    file = new File("img/match_template.png");
+                    ImageIO.write(topTemplate, "png", file);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            // Find the point with highest intensity.
+            Point2D maxPoint = this.getBrightestPixel(
+                    topImage,
+                    nextX,
+                    nextY,
+                    windowWidth,
+                    windowHeight
+            );
+
+            nextX = (int) maxPoint.getX();
+            nextY = (int) maxPoint.getY();
+
+            // After the first run this is always 3.
+            windowWidth = 3;
+            windowHeight = 3;
+
+            first = false;
         }
 
-        // Undo last multiply... I'm in a hurry, OK?
-        nextPoint.setLocation(
-                nextPoint.getX() / shrinkFactor,
-                nextPoint.getY() / shrinkFactor
-        );
-
         // Set new colors in image with bright spot only at nextPoint.
-        System.out.println(nextPoint.toString());
+        System.out.printf("(x, y): (%d, %d)\n", nextX, nextY);
     }
 
-    private BufferedImage shrinkImage(BufferedImage image, int shrinkFactor) {
+    private BufferedImage shrinkImage(BufferedImage image, int targetWidth, int targetHeight) {
 
-        int width = image.getWidth();
-        int height = image.getHeight();
+        BufferedImage newImage = new BufferedImage(targetWidth, targetHeight, image.getType());
+        Graphics2D g2 = newImage.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+        //g2.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
+        g2.drawImage(image, 0, 0, targetWidth, targetHeight, null);
+        g2.dispose();
 
-        Graphics2D g2 = image.createGraphics();
-        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g2.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
-
-        BufferedImage smallerImage = new BufferedImage(width / shrinkFactor, height / shrinkFactor, image.getType());
-        g2.drawImage(smallerImage, null, 0, 0);
-
-        return smallerImage;
+        return newImage;
     }
 
-    private Point2D getBrightestPixel(BufferedImage image) {
-
-        int width = image.getWidth();
-        int height = image.getHeight();
+    private Point2D getBrightestPixel(BufferedImage image, int windowStartX, int windowStartY, int windowWidth, int windowHeight) {
 
         int red, green, blue;
         float[] hsb = new float[3];
         float maxBrightness = Float.MIN_VALUE;
-        Point2D maxPoint = new Point2D.Double();
-        for (int x = 0; x < width; ++x) {
-            for (int y = 0; y < height; ++y) {
+        Point2D maxPoint = new Point2D.Double(windowStartX, windowStartY);
+        for (int x = windowStartX; x < windowStartX + windowWidth; ++x) {
+            for (int y = windowStartY; y < windowStartY + windowHeight; ++y) {
                 int rgbHash = image.getRGB(x, y);
                 red = (rgbHash >> 16) & 0xFF;
                 green = (rgbHash >> 8) & 0xFF;
@@ -231,6 +300,8 @@ public class TemplateMatch extends AlterRGB {
             }
         }
 
+        //System.out.printf("Max brightness is %f", maxBrightness);
+
         return maxPoint;
     }
 
@@ -241,11 +312,11 @@ public class TemplateMatch extends AlterRGB {
 
         // Threshold new color based on correlation.
         int color = 0;
-        if (correlation > 0.5) {
+        if (!this.doubleTemplate && correlation > 0.0) {
             color = (int) (correlation * 255);
         }
-        else if (this.doubleTemplate && correlation < -0.5) {
-            color = (int) (correlation * -128);
+        else if (this.doubleTemplate) {
+            color = (int) ((correlation + 1) * 127.5);
         }
 
         data[0] = data[1] = data[2] = color;
@@ -253,21 +324,16 @@ public class TemplateMatch extends AlterRGB {
         return data;
     }
 
-    protected double calculateCorrelation(int[] reds, int[] greens, int[] blues, int[] data) {
+    protected double calculateCorrelation(int[] reds, int[] greens, int[] blues, int[] data) throws InvalidArgumentException {
 
         assert data != null;
 
         double correlation = 0.0;
 
-        try {
-            correlation += this.crossCorrelate(this.reds, reds);
-            correlation += this.crossCorrelate(this.greens, greens);
-            correlation += this.crossCorrelate(this.blues, blues);
-            correlation /= 3;
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        correlation += this.crossCorrelate(this.reds, reds);
+        correlation += this.crossCorrelate(this.greens, greens);
+        correlation += this.crossCorrelate(this.blues, blues);
+        correlation /= 3;
 
         return correlation;
     }

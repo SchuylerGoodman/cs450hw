@@ -12,7 +12,12 @@ import org.jfree.data.statistics.HistogramType;
 
 import java.awt.*;
 import java.awt.image.*;
+import java.io.File;
+import java.io.IOException;
+import java.time.Instant;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import javax.imageio.*;
 
 
@@ -168,7 +173,7 @@ public class HW
 		CS450.saveChart(chart, 800, 450);
 	}
 
-	/*public void doHistogramEqualization() {
+	public void doHistogramEqualization() {
 		BufferedImage inputImage = CS450.getImageA();
 		int width = inputImage.getWidth();
 		int height = inputImage.getHeight();
@@ -186,7 +191,7 @@ public class HW
 		}
 		catch (Exception e) {
 		}
-	}*/
+	}
 
 	/*public void doHistogramSpecification() {
 
@@ -316,12 +321,20 @@ public class HW
 		KernelFactory factory = new KernelFactory();
 
 		BufferedImage in = CS450.getImageA();
-		BufferedImage out = new BufferedImage(in.getWidth(), in.getHeight(), BufferedImage.TYPE_BYTE_GRAY);
+		BufferedImage out = ImageHelper.bufferedImageDeepCopy(in);
 
 		IBorderPolicy edgeBorderPolicy = new PaddedBorder(new int[] {0, 0, 0}, in);
 		try {
-			IKernel matchKernel = factory.create(filterChoice, 15, template);
+			long startTime = System.nanoTime();
+
+			IKernel matchKernel = factory.create(filterChoice, 10, template);
 			matchKernel.apply(out, edgeBorderPolicy);
+
+			long endTime = System.nanoTime();
+
+			long timeDiff = TimeUnit.NANOSECONDS.toSeconds(endTime - startTime);
+
+			System.out.printf("Time to run: %d seconds\n", timeDiff);
 
 			CS450.setImageB(out);
 		} catch (InvalidArgumentException e) {

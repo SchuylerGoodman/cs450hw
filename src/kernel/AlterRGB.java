@@ -11,22 +11,29 @@ public abstract class AlterRGB implements IKernel {
 
     @Override
     public void apply(BufferedImage image, IBorderPolicy borderPolicy) {
-        this.alterRGB(image, borderPolicy, this.getKernelRadiusX(), this.getKernelRadiusY());
+        this.alterRGB(image,
+                borderPolicy,
+                this.getKernelRadiusX(),
+                this.getKernelRadiusY(),
+                0,
+                0,
+                image.getWidth(),
+                image.getHeight()
+        );
     }
 
     /**
      * Alters the RGB values for an image according to some function.
-     *  @param image = the image to alter.
+     * @param image = the image to alter.
      * @param borderPolicy = the border policy for querying values outside the bounds of the image.
      * @param kernelRadiusX = the radius of the spacial filtering kernel in the x direction.
      * @param kernelRadiusY = the radius of the spacial filtering kernel in the y direction.
      */
-    protected void alterRGB(BufferedImage image, IBorderPolicy borderPolicy, int kernelRadiusX, int kernelRadiusY) {
+    protected void alterRGB(BufferedImage image, IBorderPolicy borderPolicy, int kernelRadiusX, int kernelRadiusY,
+                            int windowStartX, int windowStartY, int width, int height)
+    {
 
         int totalKernelSize = (2 * kernelRadiusX + 1) * (2 * kernelRadiusY + 1);
-
-        int width = image.getWidth();
-        int height = image.getHeight();
 
         int[] reds = new int[totalKernelSize];
         int[] greens = new int[totalKernelSize];
@@ -34,8 +41,11 @@ public abstract class AlterRGB implements IKernel {
         int[] color = new int[3];
 
         // For every pixel in the image
-        for (int x = 0; x < width; ++x) {
-            for (int y = 0; y < height; ++y) {
+        for (int x = windowStartX; x < windowStartX + width; ++x) {
+            for (int y = windowStartY; y < windowStartY + height; ++y) {
+                if (x == 252 && y == 109) {
+                    int i = 0;
+                }
 
                 // Grab the colors of all the surrounding pixels
                 int p = 0;
@@ -54,7 +64,8 @@ public abstract class AlterRGB implements IKernel {
                     this.alterPixelRGB(reds, greens, blues, color);
                 }
                 catch (Exception e) {
-                    borderPolicy.getPixel(x, y, color);
+                    System.err.printf("Invalid argument in alterPixelRGB: %s", e.getMessage());
+                    e.printStackTrace();
                 }
 
                 // Set the pixel to the color of the average
@@ -160,7 +171,7 @@ public abstract class AlterRGB implements IKernel {
      */
     private int getRGBHash(int[] rgb) {
 
-        int hash = 0x000000;
+        int hash = 0xFF000000;
         hash += (rgb[0] << 16) & 0xFF0000;
         hash += (rgb[1] << 8) & 0xFF00;
         hash += (rgb[2]) & 0xFF;

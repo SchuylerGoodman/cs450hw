@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e336f82-dc64-4d4c-8a9c-f0f2ccd3dbee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/kernel/TemplateMatch.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kernel/AlterRGB.java" afterPath="$PROJECT_DIR$/src/kernel/AlterRGB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kernel/EdgeDetection.java" afterPath="$PROJECT_DIR$/src/kernel/EdgeDetection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/histogram/GrayscaleHistogram.java" afterPath="$PROJECT_DIR$/src/histogram/GrayscaleHistogram.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HW.java" afterPath="$PROJECT_DIR$/src/HW.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageHelper.java" afterPath="$PROJECT_DIR$/src/ImageHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kernel/KernelFactory.java" afterPath="$PROJECT_DIR$/src/kernel/KernelFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kernel/MedianBlur.java" afterPath="$PROJECT_DIR$/src/kernel/MedianBlur.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kernel/Sharpen.java" afterPath="$PROJECT_DIR$/src/kernel/Sharpen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kernel/UniformBlur.java" afterPath="$PROJECT_DIR$/src/kernel/UniformBlur.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kernel/TemplateMatch.java" afterPath="$PROJECT_DIR$/src/kernel/TemplateMatch.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cs450hw.iws" />
@@ -36,37 +31,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HW.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HW.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/HW.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="320" column="64" selection-start-line="320" selection-start-column="64" selection-end-line="320" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.76551723">
+              <caret line="193" column="4" selection-start-line="193" selection-start-column="4" selection-end-line="193" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KernelFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kernel/KernelFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImageHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="102" column="70" selection-start-line="102" selection-start-column="70" selection-end-line="102" selection-end-column="70" />
-              <folding>
-                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -76,50 +47,18 @@
         <entry file="file://$PROJECT_DIR$/src/CS450.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pixel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/histogram/Pixel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+              <caret line="173" column="4" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sharpen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kernel/Sharpen.java">
+      <file leaf-file-name="ImageHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ImageHelper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
-              <folding>
-                <element signature="e#929#930#0" expanded="false" />
-                <element signature="e#965#966#0" expanded="false" />
-                <element signature="e#1019#1020#0" expanded="false" />
-                <element signature="e#1055#1056#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UniformBlur.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kernel/UniformBlur.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-              <folding>
-                <element signature="e#483#484#0" expanded="false" />
-                <element signature="e#531#532#0" expanded="false" />
-                <element signature="e#585#586#0" expanded="false" />
-                <element signature="e#625#626#0" expanded="false" />
-              </folding>
+              <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -128,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/src/kernel/AlterRGB.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -136,16 +75,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TemplateMatch.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/kernel/TemplateMatch.java">
+      <file leaf-file-name="GrayscaleHistogram.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/histogram/GrayscaleHistogram.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.8121911">
-              <caret line="191" column="48" selection-start-line="191" selection-start-column="48" selection-end-line="191" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="210" column="46" selection-start-line="210" selection-start-column="46" selection-end-line="210" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3683#3684#0" expanded="true" />
-                <element signature="e#3719#3720#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PaddedBorder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kernel/PaddedBorder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TemplateMatch.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kernel/TemplateMatch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="318" column="43" selection-start-line="318" selection-start-column="43" selection-end-line="318" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IKernel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kernel/IKernel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Graphics2D.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/awt/Graphics2D.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="563" column="34" selection-start-line="563" selection-start-column="34" selection-end-line="563" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,8 +135,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
               <folding>
-                <element signature="e#0#64200#0" expanded="false" />
-                <element signature="imports" expanded="false" />
                 <element signature="docComment;class#BufferedImage#0" expanded="false" />
                 <element signature="docComment;field#TYPE_CUSTOM#0;class#BufferedImage#0" expanded="false" />
                 <element signature="docComment;field#TYPE_INT_RGB#0;class#BufferedImage#0" expanded="false" />
@@ -172,60 +149,6 @@
                 <element signature="method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
                 <element signature="method#isStandard#0;class#BufferedImage#0" expanded="false" />
                 <element signature="docComment;method#getType#0;class#BufferedImage#0" expanded="false" />
-                <element signature="e#34806#34807#0" expanded="false" />
-                <element signature="e#34838#34839#0" expanded="false" />
-                <element signature="e#35026#35027#0" expanded="false" />
-                <element signature="e#35059#35060#0" expanded="false" />
-                <element signature="e#35251#35252#0" expanded="false" />
-                <element signature="e#35280#35281#0" expanded="false" />
-                <element signature="e#36532#36533#0" expanded="false" />
-                <element signature="e#36588#36589#0" expanded="false" />
-                <element signature="e#37710#37711#0" expanded="false" />
-                <element signature="e#37786#37787#0" expanded="false" />
-                <element signature="e#43542#43543#0" expanded="false" />
-                <element signature="e#43582#43583#0" expanded="false" />
-                <element signature="e#43750#43751#0" expanded="false" />
-                <element signature="e#43791#43792#0" expanded="false" />
-                <element signature="e#44009#44010#0" expanded="false" />
-                <element signature="e#44049#44050#0" expanded="false" />
-                <element signature="e#44270#44271#0" expanded="false" />
-                <element signature="e#44311#44312#0" expanded="false" />
-                <element signature="e#45978#45979#0" expanded="false" />
-                <element signature="e#46018#46019#0" expanded="false" />
-                <element signature="e#47114#47115#0" expanded="false" />
-                <element signature="e#47153#47154#0" expanded="false" />
-                <element signature="e#49022#49023#0" expanded="false" />
-                <element signature="e#49078#49079#0" expanded="false" />
-                <element signature="e#51113#51114#0" expanded="false" />
-                <element signature="e#51140#51141#0" expanded="false" />
-                <element signature="e#52035#52036#0" expanded="false" />
-                <element signature="e#52074#52075#0" expanded="false" />
-                <element signature="e#52315#52316#0" expanded="false" />
-                <element signature="e#52354#52355#0" expanded="false" />
-                <element signature="e#52609#52610#0" expanded="false" />
-                <element signature="e#52655#52656#0" expanded="false" />
-                <element signature="e#52841#52842#0" expanded="false" />
-                <element signature="e#52865#52866#0" expanded="false" />
-                <element signature="e#53051#53052#0" expanded="false" />
-                <element signature="e#53075#53076#0" expanded="false" />
-                <element signature="e#53267#53268#0" expanded="false" />
-                <element signature="e#53291#53292#0" expanded="false" />
-                <element signature="e#53483#53484#0" expanded="false" />
-                <element signature="e#53507#53508#0" expanded="false" />
-                <element signature="e#53638#53639#0" expanded="false" />
-                <element signature="e#53677#53678#0" expanded="false" />
-                <element signature="e#53811#53812#0" expanded="false" />
-                <element signature="e#53851#53852#0" expanded="false" />
-                <element signature="e#54124#54125#0" expanded="false" />
-                <element signature="e#54180#54181#0" expanded="false" />
-                <element signature="e#54453#54454#0" expanded="false" />
-                <element signature="e#54509#54510#0" expanded="false" />
-                <element signature="e#62680#62681#0" expanded="false" />
-                <element signature="e#62707#62708#0" expanded="false" />
-                <element signature="e#63179#63180#0" expanded="false" />
-                <element signature="e#63208#63209#0" expanded="false" />
-                <element signature="e#64145#64146#0" expanded="false" />
-                <element signature="e#64196#64197#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -270,16 +193,16 @@
         <option value="$PROJECT_DIR$/src/kernel/IBorderPolicy.java" />
         <option value="$PROJECT_DIR$/src/kernel/PaddedBorder.java" />
         <option value="$PROJECT_DIR$/src/histogram/IHistogram.java" />
-        <option value="$PROJECT_DIR$/src/histogram/GrayscaleHistogram.java" />
         <option value="$PROJECT_DIR$/src/CS450.java" />
-        <option value="$PROJECT_DIR$/src/kernel/EdgeDetection.java" />
         <option value="$PROJECT_DIR$/src/kernel/MedianBlur.java" />
         <option value="$PROJECT_DIR$/src/kernel/Sharpen.java" />
         <option value="$PROJECT_DIR$/src/kernel/UniformBlur.java" />
         <option value="$PROJECT_DIR$/src/ImageHelper.java" />
-        <option value="$PROJECT_DIR$/src/kernel/AlterRGB.java" />
-        <option value="$PROJECT_DIR$/src/kernel/TemplateMatch.java" />
         <option value="$PROJECT_DIR$/src/kernel/KernelFactory.java" />
+        <option value="$PROJECT_DIR$/src/kernel/EdgeDetection.java" />
+        <option value="$PROJECT_DIR$/src/kernel/AlterRGB.java" />
+        <option value="$PROJECT_DIR$/src/histogram/GrayscaleHistogram.java" />
+        <option value="$PROJECT_DIR$/src/kernel/TemplateMatch.java" />
         <option value="$PROJECT_DIR$/src/HW.java" />
       </list>
     </option>
@@ -297,7 +220,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1932" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -323,7 +246,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -426,8 +351,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -697,11 +620,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454111861141</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Working on HW4, finished part 1, need to fix bugs for part 3.">
+      <created>1454717353397</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1454717353397</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -715,7 +644,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25104168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24895616" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -747,11 +676,56 @@
     <MESSAGE value="Added imageio library and implemented thresholding by otsu's method." />
     <MESSAGE value="Finished HW3 part 1 - detecting COB of missing object." />
     <MESSAGE value="Finished HW3 part 2, removed readme." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished HW3 part 2, removed readme." />
+    <MESSAGE value="Working on HW4, finished part 1, need to fix bugs for part 3." />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on HW4, finished part 1, need to fix bugs for part 3." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="86" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kernel/TemplateMatch.java</url>
+          <line>350</line>
+          <properties />
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kernel/TemplateMatch.java</url>
+          <line>247</line>
+          <properties />
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kernel/TemplateMatch.java</url>
+          <line>192</line>
+          <properties />
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kernel/TemplateMatch.java</url>
+          <line>234</line>
+          <properties />
+          <option name="timeStamp" value="161" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kernel/TemplateMatch.java</url>
+          <line>223</line>
+          <properties />
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/histogram/GrayscaleHistogram.java</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kernel/AlterRGB.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="164" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="165" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -760,23 +734,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/io/FileExtensionNotSupportedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HW.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="160" column="12" selection-start-line="160" selection-start-column="12" selection-end-line="160" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/jfreechart-1.0.19.jar!/org/jfree/data/statistics/HistogramType.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -796,7 +753,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1047#1048#0" expanded="false" />
+            <element signature="e#1085#1086#0" expanded="false" />
+            <element signature="e#1130#1131#0" expanded="false" />
+            <element signature="e#1168#1169#0" expanded="false" />
+            <element signature="e#5108#5109#0" expanded="false" />
+            <element signature="e#5149#5150#0" expanded="false" />
+            <element signature="e#5219#5220#0" expanded="false" />
+            <element signature="e#5268#5269#0" expanded="false" />
+            <element signature="e#5335#5336#0" expanded="false" />
+            <element signature="e#5379#5380#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -813,8 +779,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="313" column="0" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
           <folding>
-            <element signature="e#0#64200#0" expanded="false" />
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_CUSTOM#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_INT_RGB#0;class#BufferedImage#0" expanded="false" />
@@ -829,60 +793,6 @@
             <element signature="method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
             <element signature="method#isStandard#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;method#getType#0;class#BufferedImage#0" expanded="false" />
-            <element signature="e#34806#34807#0" expanded="false" />
-            <element signature="e#34838#34839#0" expanded="false" />
-            <element signature="e#35026#35027#0" expanded="false" />
-            <element signature="e#35059#35060#0" expanded="false" />
-            <element signature="e#35251#35252#0" expanded="false" />
-            <element signature="e#35280#35281#0" expanded="false" />
-            <element signature="e#36532#36533#0" expanded="false" />
-            <element signature="e#36588#36589#0" expanded="false" />
-            <element signature="e#37710#37711#0" expanded="false" />
-            <element signature="e#37786#37787#0" expanded="false" />
-            <element signature="e#43542#43543#0" expanded="false" />
-            <element signature="e#43582#43583#0" expanded="false" />
-            <element signature="e#43750#43751#0" expanded="false" />
-            <element signature="e#43791#43792#0" expanded="false" />
-            <element signature="e#44009#44010#0" expanded="false" />
-            <element signature="e#44049#44050#0" expanded="false" />
-            <element signature="e#44270#44271#0" expanded="false" />
-            <element signature="e#44311#44312#0" expanded="false" />
-            <element signature="e#45978#45979#0" expanded="false" />
-            <element signature="e#46018#46019#0" expanded="false" />
-            <element signature="e#47114#47115#0" expanded="false" />
-            <element signature="e#47153#47154#0" expanded="false" />
-            <element signature="e#49022#49023#0" expanded="false" />
-            <element signature="e#49078#49079#0" expanded="false" />
-            <element signature="e#51113#51114#0" expanded="false" />
-            <element signature="e#51140#51141#0" expanded="false" />
-            <element signature="e#52035#52036#0" expanded="false" />
-            <element signature="e#52074#52075#0" expanded="false" />
-            <element signature="e#52315#52316#0" expanded="false" />
-            <element signature="e#52354#52355#0" expanded="false" />
-            <element signature="e#52609#52610#0" expanded="false" />
-            <element signature="e#52655#52656#0" expanded="false" />
-            <element signature="e#52841#52842#0" expanded="false" />
-            <element signature="e#52865#52866#0" expanded="false" />
-            <element signature="e#53051#53052#0" expanded="false" />
-            <element signature="e#53075#53076#0" expanded="false" />
-            <element signature="e#53267#53268#0" expanded="false" />
-            <element signature="e#53291#53292#0" expanded="false" />
-            <element signature="e#53483#53484#0" expanded="false" />
-            <element signature="e#53507#53508#0" expanded="false" />
-            <element signature="e#53638#53639#0" expanded="false" />
-            <element signature="e#53677#53678#0" expanded="false" />
-            <element signature="e#53811#53812#0" expanded="false" />
-            <element signature="e#53851#53852#0" expanded="false" />
-            <element signature="e#54124#54125#0" expanded="false" />
-            <element signature="e#54180#54181#0" expanded="false" />
-            <element signature="e#54453#54454#0" expanded="false" />
-            <element signature="e#54509#54510#0" expanded="false" />
-            <element signature="e#62680#62681#0" expanded="false" />
-            <element signature="e#62707#62708#0" expanded="false" />
-            <element signature="e#63179#63180#0" expanded="false" />
-            <element signature="e#63208#63209#0" expanded="false" />
-            <element signature="e#64145#64146#0" expanded="false" />
-            <element signature="e#64196#64197#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -899,7 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="282" column="33" selection-start-line="282" selection-start-column="33" selection-end-line="282" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -939,7 +848,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1047#1048#0" expanded="false" />
+            <element signature="e#1085#1086#0" expanded="false" />
+            <element signature="e#1130#1131#0" expanded="false" />
+            <element signature="e#1168#1169#0" expanded="false" />
+            <element signature="e#5108#5109#0" expanded="false" />
+            <element signature="e#5149#5150#0" expanded="false" />
+            <element signature="e#5219#5220#0" expanded="false" />
+            <element signature="e#5268#5269#0" expanded="false" />
+            <element signature="e#5335#5336#0" expanded="false" />
+            <element signature="e#5379#5380#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -956,8 +874,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="313" column="0" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
           <folding>
-            <element signature="e#0#64200#0" expanded="false" />
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_CUSTOM#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_INT_RGB#0;class#BufferedImage#0" expanded="false" />
@@ -972,60 +888,6 @@
             <element signature="method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
             <element signature="method#isStandard#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;method#getType#0;class#BufferedImage#0" expanded="false" />
-            <element signature="e#34806#34807#0" expanded="false" />
-            <element signature="e#34838#34839#0" expanded="false" />
-            <element signature="e#35026#35027#0" expanded="false" />
-            <element signature="e#35059#35060#0" expanded="false" />
-            <element signature="e#35251#35252#0" expanded="false" />
-            <element signature="e#35280#35281#0" expanded="false" />
-            <element signature="e#36532#36533#0" expanded="false" />
-            <element signature="e#36588#36589#0" expanded="false" />
-            <element signature="e#37710#37711#0" expanded="false" />
-            <element signature="e#37786#37787#0" expanded="false" />
-            <element signature="e#43542#43543#0" expanded="false" />
-            <element signature="e#43582#43583#0" expanded="false" />
-            <element signature="e#43750#43751#0" expanded="false" />
-            <element signature="e#43791#43792#0" expanded="false" />
-            <element signature="e#44009#44010#0" expanded="false" />
-            <element signature="e#44049#44050#0" expanded="false" />
-            <element signature="e#44270#44271#0" expanded="false" />
-            <element signature="e#44311#44312#0" expanded="false" />
-            <element signature="e#45978#45979#0" expanded="false" />
-            <element signature="e#46018#46019#0" expanded="false" />
-            <element signature="e#47114#47115#0" expanded="false" />
-            <element signature="e#47153#47154#0" expanded="false" />
-            <element signature="e#49022#49023#0" expanded="false" />
-            <element signature="e#49078#49079#0" expanded="false" />
-            <element signature="e#51113#51114#0" expanded="false" />
-            <element signature="e#51140#51141#0" expanded="false" />
-            <element signature="e#52035#52036#0" expanded="false" />
-            <element signature="e#52074#52075#0" expanded="false" />
-            <element signature="e#52315#52316#0" expanded="false" />
-            <element signature="e#52354#52355#0" expanded="false" />
-            <element signature="e#52609#52610#0" expanded="false" />
-            <element signature="e#52655#52656#0" expanded="false" />
-            <element signature="e#52841#52842#0" expanded="false" />
-            <element signature="e#52865#52866#0" expanded="false" />
-            <element signature="e#53051#53052#0" expanded="false" />
-            <element signature="e#53075#53076#0" expanded="false" />
-            <element signature="e#53267#53268#0" expanded="false" />
-            <element signature="e#53291#53292#0" expanded="false" />
-            <element signature="e#53483#53484#0" expanded="false" />
-            <element signature="e#53507#53508#0" expanded="false" />
-            <element signature="e#53638#53639#0" expanded="false" />
-            <element signature="e#53677#53678#0" expanded="false" />
-            <element signature="e#53811#53812#0" expanded="false" />
-            <element signature="e#53851#53852#0" expanded="false" />
-            <element signature="e#54124#54125#0" expanded="false" />
-            <element signature="e#54180#54181#0" expanded="false" />
-            <element signature="e#54453#54454#0" expanded="false" />
-            <element signature="e#54509#54510#0" expanded="false" />
-            <element signature="e#62680#62681#0" expanded="false" />
-            <element signature="e#62707#62708#0" expanded="false" />
-            <element signature="e#63179#63180#0" expanded="false" />
-            <element signature="e#63208#63209#0" expanded="false" />
-            <element signature="e#64145#64146#0" expanded="false" />
-            <element signature="e#64196#64197#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1042,7 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="282" column="33" selection-start-line="282" selection-start-column="33" selection-end-line="282" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,24 +963,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ButtonHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/kernel/IBorderPolicy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/kernel/PaddedBorder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1149,6 +996,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5041186">
           <caret line="1517" column="4" selection-start-line="1517" selection-start-column="4" selection-end-line="1517" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,6 +1004,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39209226">
           <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1163,7 +1012,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="283" column="17" selection-start-line="283" selection-start-column="17" selection-end-line="283" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,13 +1019,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/histogram/GrayscaleHistogram.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1189,22 +1030,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kernel/IKernel.java">
+    <entry file="file://$PROJECT_DIR$/src/histogram/Pixel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kernel/EdgeDetection.java">
+    <entry file="file://$PROJECT_DIR$/src/kernel/KernelFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1001#1002#0" expanded="false" />
-            <element signature="e#1037#1038#0" expanded="false" />
-          </folding>
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1213,10 +1051,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
           <folding>
-            <element signature="e#507#508#0" expanded="false" />
-            <element signature="e#555#556#0" expanded="false" />
-            <element signature="e#609#610#0" expanded="false" />
-            <element signature="e#649#650#0" expanded="false" />
+            <element signature="e#703#704#0" expanded="false" />
+            <element signature="e#743#744#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/UniformBlur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding>
+            <element signature="e#679#680#0" expanded="false" />
+            <element signature="e#719#720#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1226,32 +1073,76 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
           <folding>
-            <element signature="e#929#930#0" expanded="false" />
-            <element signature="e#965#966#0" expanded="false" />
             <element signature="e#1019#1020#0" expanded="false" />
             <element signature="e#1055#1056#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/histogram/Pixel.java">
+    <entry file="file://$PROJECT_DIR$/src/kernel/EdgeDetection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#1091#1092#0" expanded="false" />
+            <element signature="e#1127#1128#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="26" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kernel/UniformBlur.java">
+    <entry file="file://$PROJECT_DIR$/src/ButtonHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-          <folding>
-            <element signature="e#483#484#0" expanded="false" />
-            <element signature="e#531#532#0" expanded="false" />
-            <element signature="e#585#586#0" expanded="false" />
-            <element signature="e#625#626#0" expanded="false" />
-          </folding>
+          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/awt/Graphics2D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="563" column="34" selection-start-line="563" selection-start-column="34" selection-end-line="563" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CS450.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="173" column="4" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/IKernel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/PaddedBorder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1260,8 +1151,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
           <folding>
-            <element signature="e#0#64200#0" expanded="false" />
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_CUSTOM#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_INT_RGB#0;class#BufferedImage#0" expanded="false" />
@@ -1276,80 +1165,6 @@
             <element signature="method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
             <element signature="method#isStandard#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;method#getType#0;class#BufferedImage#0" expanded="false" />
-            <element signature="e#34806#34807#0" expanded="false" />
-            <element signature="e#34838#34839#0" expanded="false" />
-            <element signature="e#35026#35027#0" expanded="false" />
-            <element signature="e#35059#35060#0" expanded="false" />
-            <element signature="e#35251#35252#0" expanded="false" />
-            <element signature="e#35280#35281#0" expanded="false" />
-            <element signature="e#36532#36533#0" expanded="false" />
-            <element signature="e#36588#36589#0" expanded="false" />
-            <element signature="e#37710#37711#0" expanded="false" />
-            <element signature="e#37786#37787#0" expanded="false" />
-            <element signature="e#43542#43543#0" expanded="false" />
-            <element signature="e#43582#43583#0" expanded="false" />
-            <element signature="e#43750#43751#0" expanded="false" />
-            <element signature="e#43791#43792#0" expanded="false" />
-            <element signature="e#44009#44010#0" expanded="false" />
-            <element signature="e#44049#44050#0" expanded="false" />
-            <element signature="e#44270#44271#0" expanded="false" />
-            <element signature="e#44311#44312#0" expanded="false" />
-            <element signature="e#45978#45979#0" expanded="false" />
-            <element signature="e#46018#46019#0" expanded="false" />
-            <element signature="e#47114#47115#0" expanded="false" />
-            <element signature="e#47153#47154#0" expanded="false" />
-            <element signature="e#49022#49023#0" expanded="false" />
-            <element signature="e#49078#49079#0" expanded="false" />
-            <element signature="e#51113#51114#0" expanded="false" />
-            <element signature="e#51140#51141#0" expanded="false" />
-            <element signature="e#52035#52036#0" expanded="false" />
-            <element signature="e#52074#52075#0" expanded="false" />
-            <element signature="e#52315#52316#0" expanded="false" />
-            <element signature="e#52354#52355#0" expanded="false" />
-            <element signature="e#52609#52610#0" expanded="false" />
-            <element signature="e#52655#52656#0" expanded="false" />
-            <element signature="e#52841#52842#0" expanded="false" />
-            <element signature="e#52865#52866#0" expanded="false" />
-            <element signature="e#53051#53052#0" expanded="false" />
-            <element signature="e#53075#53076#0" expanded="false" />
-            <element signature="e#53267#53268#0" expanded="false" />
-            <element signature="e#53291#53292#0" expanded="false" />
-            <element signature="e#53483#53484#0" expanded="false" />
-            <element signature="e#53507#53508#0" expanded="false" />
-            <element signature="e#53638#53639#0" expanded="false" />
-            <element signature="e#53677#53678#0" expanded="false" />
-            <element signature="e#53811#53812#0" expanded="false" />
-            <element signature="e#53851#53852#0" expanded="false" />
-            <element signature="e#54124#54125#0" expanded="false" />
-            <element signature="e#54180#54181#0" expanded="false" />
-            <element signature="e#54453#54454#0" expanded="false" />
-            <element signature="e#54509#54510#0" expanded="false" />
-            <element signature="e#62680#62681#0" expanded="false" />
-            <element signature="e#62707#62708#0" expanded="false" />
-            <element signature="e#63179#63180#0" expanded="false" />
-            <element signature="e#63208#63209#0" expanded="false" />
-            <element signature="e#64145#64146#0" expanded="false" />
-            <element signature="e#64196#64197#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="70" selection-start-line="102" selection-start-column="70" selection-end-line="102" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CS450.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1357,27 +1172,17 @@
     <entry file="file://$PROJECT_DIR$/src/kernel/AlterRGB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kernel/KernelFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/histogram/GrayscaleHistogram.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HW.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="320" column="64" selection-start-line="320" selection-start-column="64" selection-end-line="320" selection-end-column="64" />
+          <caret line="210" column="46" selection-start-line="210" selection-start-column="46" selection-end-line="210" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1386,12 +1191,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kernel/TemplateMatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.8121911">
-          <caret line="191" column="48" selection-start-line="191" selection-start-column="48" selection-end-line="191" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="318" column="43" selection-start-line="318" selection-start-column="43" selection-end-line="318" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3683#3684#0" expanded="true" />
-            <element signature="e#3719#3720#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HW.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76551723">
+          <caret line="193" column="4" selection-start-line="193" selection-start-column="4" selection-end-line="193" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
