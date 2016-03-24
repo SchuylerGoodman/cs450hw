@@ -9,6 +9,8 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
+import transform.ITransform;
+import transform.Magnify;
 
 import java.awt.*;
 import java.awt.image.*;
@@ -340,6 +342,23 @@ public class HW
 		} catch (InvalidArgumentException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void doMagnify() {
+
+		String f = CS450.prompt("Magnification factor (positive integer)", "2");
+		if (f == null) return;
+		int factor = Integer.parseInt(f);
+
+		// Just quit if input is invalid - I ain't got the time
+		if (factor < 1) { return; }
+
+		BufferedImage inputImage = CS450.getImageA();
+
+		ITransform magnify = new Magnify(factor, factor);
+
+		BufferedImage outputImage = magnify.apply(inputImage);
+
 	}
 
 
