@@ -1,26 +1,17 @@
 import com.sun.javaws.exceptions.InvalidArgumentException;
 import histogram.GrayscaleHistogram;
 import histogram.IHistogram;
-import histogram.IHistogramBucket;
-import histogram.Pixel;
 import kernel.*;
+import main.ImageHelper;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
-import transform.ITransform;
-import transform.Magnify;
-import transform.Reduce;
-import transform.Rotate;
+import transform.*;
 
 import java.awt.*;
 import java.awt.image.*;
-import java.io.File;
-import java.io.IOException;
-import java.time.Instant;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import javax.imageio.*;
 
@@ -214,7 +205,7 @@ public class HW
 		try {
 			IHistogram specifiedHistogram = inputHistogram.specify(outputHistogram, null);
 
-			ImageHelper.histogramToImage(specifiedHistogram, newOutputImage);
+			main.ImageHelper.histogramToImage(specifiedHistogram, newOutputImage);
 
 			CS450.setImageA(newOutputImage);
 		}
@@ -258,7 +249,7 @@ public class HW
 		BufferedImage first = CS450.getImageA();
 		BufferedImage second = CS450.getImageB();
 
-		BufferedImage out = ImageHelper.difference(first, second, null);
+		BufferedImage out = main.ImageHelper.difference(first, second, null);
 
 		CS450.setImageB(out);
 	}*/
@@ -268,14 +259,14 @@ public class HW
 		BufferedImage fullImage = CS450.getImageA();
 		BufferedImage incompleteImage = CS450.getImageB();
 
-		BufferedImage difference = ImageHelper.difference(fullImage, incompleteImage, null);
+		BufferedImage difference = main.ImageHelper.difference(fullImage, incompleteImage, null);
 		BufferedImage blurred = new BufferedImage(difference.getWidth(), difference.getHeight(), difference.getType());
 
 		IBorderPolicy blurBorderPolicy = new PaddedBorder(new int[] {0, 0, 0}, difference);
 		IKernel blurKernel = new UniformBlur(2);
 		blurKernel.apply(blurred, blurBorderPolicy);
 
-		BufferedImage thresholded = ImageHelper.threshold(blurred, null);
+		BufferedImage thresholded = main.ImageHelper.threshold(blurred, null);
 
 		// To make it slightly better, execute the next 6 lines, as well.
 		//
@@ -284,11 +275,11 @@ public class HW
 		IKernel edgeKernel = new EdgeDetection();
 		edgeKernel.apply(edged, edgeBorderPolicy);
 
-		thresholded = ImageHelper.threshold(edged, null);
+		thresholded = main.ImageHelper.threshold(edged, null);
 		//
 
 		try {
-			Pixel centerOfBalance = ImageHelper.getWhiteCenterOfBalance(thresholded);
+			Pixel centerOfBalance = main.ImageHelper.getWhiteCenterOfBalance(thresholded);
 
 			CS450.message(
 					String.format(
@@ -308,7 +299,7 @@ public class HW
 		BufferedImage[] images = CS450.openImages();
 
 		try {
-			BufferedImage averageImage = ImageHelper.averageImages(Arrays.asList(images));
+			BufferedImage averageImage = main.ImageHelper.averageImages(Arrays.asList(images));
 
 			CS450.setImageB(averageImage);
 		}

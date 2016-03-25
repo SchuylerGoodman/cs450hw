@@ -1,3 +1,5 @@
+package main;
+
 import com.sun.javaws.exceptions.InvalidArgumentException;
 import histogram.GrayscaleHistogram;
 import histogram.IHistogram;

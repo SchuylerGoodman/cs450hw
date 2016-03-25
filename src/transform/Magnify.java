@@ -50,12 +50,13 @@ public class Magnify implements ITransform {
                 // Apply inverse transform to find coordinates (v, w) in input
                 float v = Magnify.getInverseCoordinate(inputWidth, outputWidth, x);
                 float w = Magnify.getInverseCoordinate(inputHeight, outputHeight, y);
-                int flatv = (int) (v == inputWidth - 1 ? v - 1 : Math.floor(v));
-                int flatw = (int) (w == inputHeight - 1 ? w - 1 : Math.floor(w));
+                int flatv = (int) (v >= inputWidth - 1 ? v - 1 : Math.floor(v));
+                int flatw = (int) (w >= inputHeight - 1 ? w - 1 : Math.floor(w));
                 float xfrac = v - flatv;
                 float yfrac = w - flatw;
 
                 // Get bilinear interpolated values for coordinates (v, w)
+                //System.out.println("Coordinates: (x, y) = (" + x + ", " + y + ") => " + "(v, w) = (" + flatv + ", " + flatw + ")");
                 inputRaster.getPixels(flatv, flatw, 2, 2, inputColors);
                 for (int i = 0; i < pixelStride; ++i) {
                     outputColors[i] = Magnify.getInterpolatedValue(
