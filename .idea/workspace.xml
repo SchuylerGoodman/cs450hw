@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e336f82-dc64-4d4c-8a9c-f0f2ccd3dbee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/transform/ITransform.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/transform/Magnify.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/transform/Reduce.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HW.java" afterPath="$PROJECT_DIR$/src/HW.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/transform/Magnify.java" afterPath="$PROJECT_DIR$/src/transform/Magnify.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cs450hw.iws" />
@@ -30,14 +30,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HW.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HW.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/HW.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.851852">
-              <caret line="359" column="61" selection-start-line="359" selection-start-column="61" selection-end-line="359" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.7034483">
+              <caret line="377" column="32" selection-start-line="377" selection-start-column="32" selection-end-line="377" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Reduce.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/transform/Reduce.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,16 +62,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Magnify.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Magnify.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/transform/Magnify.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24214418">
-              <caret line="54" column="61" selection-start-line="54" selection-start-column="61" selection-end-line="54" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2412#2413#0" expanded="true" />
-                <element signature="e#2464#2465#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ButtonHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ButtonHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ByteInterleavedRaster.class" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/jre/lib/rt.jar!/sun/awt/image/ByteInterleavedRaster.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.407408">
+              <caret line="800" column="22" selection-start-line="800" selection-start-column="22" selection-end-line="800" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,7 +99,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="173" column="4" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1047#1048#0" expanded="false" />
+                <element signature="e#1085#1086#0" expanded="false" />
+                <element signature="e#1130#1131#0" expanded="false" />
+                <element signature="e#1168#1169#0" expanded="false" />
+                <element signature="e#5108#5109#0" expanded="false" />
+                <element signature="e#5149#5150#0" expanded="false" />
+                <element signature="e#5219#5220#0" expanded="false" />
+                <element signature="e#5268#5269#0" expanded="false" />
+                <element signature="e#5335#5336#0" expanded="false" />
+                <element signature="e#5379#5380#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,18 +122,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AlterRGB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kernel/AlterRGB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -110,16 +138,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PaddedBorder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kernel/PaddedBorder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TemplateMatch.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kernel/TemplateMatch.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -127,87 +145,6 @@
               <caret line="318" column="43" selection-start-line="318" selection-start-column="43" selection-end-line="318" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BufferedImage.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/awt/image/BufferedImage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#64200#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="docComment;class#BufferedImage#0" expanded="false" />
-                <element signature="docComment;field#TYPE_CUSTOM#0;class#BufferedImage#0" expanded="false" />
-                <element signature="docComment;field#TYPE_INT_RGB#0;class#BufferedImage#0" expanded="false" />
-                <element signature="docComment;field#TYPE_INT_ARGB#0;class#BufferedImage#0" expanded="false" />
-                <element signature="docComment;field#TYPE_INT_ARGB_PRE#0;class#BufferedImage#0" expanded="false" />
-                <element signature="docComment;field#TYPE_INT_BGR#0;class#BufferedImage#0" expanded="false" />
-                <element signature="initializer##0;class#BufferedImage#0" expanded="false" />
-                <element signature="docComment;method#BufferedImage#0;class#BufferedImage#0" expanded="false" />
-                <element signature="docComment;method#BufferedImage#1;class#BufferedImage#0" expanded="false" />
-                <element signature="method#BufferedImage#1;class#BufferedImage#0" expanded="false" />
-                <element signature="docComment;method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
-                <element signature="method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
-                <element signature="method#isStandard#0;class#BufferedImage#0" expanded="false" />
-                <element signature="docComment;method#getType#0;class#BufferedImage#0" expanded="false" />
-                <element signature="e#34806#34807#0" expanded="false" />
-                <element signature="e#34838#34839#0" expanded="false" />
-                <element signature="e#35026#35027#0" expanded="false" />
-                <element signature="e#35059#35060#0" expanded="false" />
-                <element signature="e#35251#35252#0" expanded="false" />
-                <element signature="e#35280#35281#0" expanded="false" />
-                <element signature="e#36532#36533#0" expanded="false" />
-                <element signature="e#36588#36589#0" expanded="false" />
-                <element signature="e#37710#37711#0" expanded="false" />
-                <element signature="e#37786#37787#0" expanded="false" />
-                <element signature="e#43542#43543#0" expanded="false" />
-                <element signature="e#43582#43583#0" expanded="false" />
-                <element signature="e#43750#43751#0" expanded="false" />
-                <element signature="e#43791#43792#0" expanded="false" />
-                <element signature="e#44009#44010#0" expanded="false" />
-                <element signature="e#44049#44050#0" expanded="false" />
-                <element signature="e#44270#44271#0" expanded="false" />
-                <element signature="e#44311#44312#0" expanded="false" />
-                <element signature="e#45978#45979#0" expanded="false" />
-                <element signature="e#46018#46019#0" expanded="false" />
-                <element signature="e#47114#47115#0" expanded="false" />
-                <element signature="e#47153#47154#0" expanded="false" />
-                <element signature="e#49022#49023#0" expanded="false" />
-                <element signature="e#49078#49079#0" expanded="false" />
-                <element signature="e#51113#51114#0" expanded="false" />
-                <element signature="e#51140#51141#0" expanded="false" />
-                <element signature="e#52035#52036#0" expanded="false" />
-                <element signature="e#52074#52075#0" expanded="false" />
-                <element signature="e#52315#52316#0" expanded="false" />
-                <element signature="e#52354#52355#0" expanded="false" />
-                <element signature="e#52609#52610#0" expanded="false" />
-                <element signature="e#52655#52656#0" expanded="false" />
-                <element signature="e#52841#52842#0" expanded="false" />
-                <element signature="e#52865#52866#0" expanded="false" />
-                <element signature="e#53051#53052#0" expanded="false" />
-                <element signature="e#53075#53076#0" expanded="false" />
-                <element signature="e#53267#53268#0" expanded="false" />
-                <element signature="e#53291#53292#0" expanded="false" />
-                <element signature="e#53483#53484#0" expanded="false" />
-                <element signature="e#53507#53508#0" expanded="false" />
-                <element signature="e#53638#53639#0" expanded="false" />
-                <element signature="e#53677#53678#0" expanded="false" />
-                <element signature="e#53811#53812#0" expanded="false" />
-                <element signature="e#53851#53852#0" expanded="false" />
-                <element signature="e#54124#54125#0" expanded="false" />
-                <element signature="e#54180#54181#0" expanded="false" />
-                <element signature="e#54453#54454#0" expanded="false" />
-                <element signature="e#54509#54510#0" expanded="false" />
-                <element signature="e#62680#62681#0" expanded="false" />
-                <element signature="e#62707#62708#0" expanded="false" />
-                <element signature="e#63179#63180#0" expanded="false" />
-                <element signature="e#63208#63209#0" expanded="false" />
-                <element signature="e#64145#64146#0" expanded="false" />
-                <element signature="e#64196#64197#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -263,8 +200,9 @@
         <option value="$PROJECT_DIR$/src/histogram/GrayscaleHistogram.java" />
         <option value="$PROJECT_DIR$/src/kernel/TemplateMatch.java" />
         <option value="$PROJECT_DIR$/src/transform/ITransform.java" />
-        <option value="$PROJECT_DIR$/src/HW.java" />
         <option value="$PROJECT_DIR$/src/transform/Magnify.java" />
+        <option value="$PROJECT_DIR$/src/transform/Reduce.java" />
+        <option value="$PROJECT_DIR$/src/HW.java" />
       </list>
     </option>
   </component>
@@ -307,6 +245,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -428,7 +367,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -462,6 +400,9 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\GitHub\cs450hw\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="transform" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Default">
@@ -712,7 +653,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454798403123</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Started HW 8. Added ITransform and Magnify transform classes. Need to correctly add color interpolation for upscaling images.">
+      <created>1458792576872</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1458792576872</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -727,7 +674,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24895616" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -736,7 +683,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39915523" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39915523" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -764,7 +711,8 @@
     <MESSAGE value="Finished HW3 part 2, removed readme." />
     <MESSAGE value="Working on HW4, finished part 1, need to fix bugs for part 3." />
     <MESSAGE value="Finished HW4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished HW4" />
+    <MESSAGE value="Started HW 8. Added ITransform and Magnify transform classes. Need to correctly add color interpolation for upscaling images." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started HW 8. Added ITransform and Magnify transform classes. Need to correctly add color interpolation for upscaling images." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -811,14 +759,8 @@
           <properties />
           <option name="timeStamp" value="164" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/transform/Magnify.java</url>
-          <line>53</line>
-          <properties />
-          <option name="timeStamp" value="165" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="166" />
+      <option name="time" value="172" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -827,28 +769,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/CS450.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/ImageOutputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="125" column="8" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/awt/image/BufferedImage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="313" column="0" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
           <folding>
-            <element signature="e#0#64200#0" expanded="false" />
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_CUSTOM#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_INT_RGB#0;class#BufferedImage#0" expanded="false" />
@@ -863,60 +788,6 @@
             <element signature="method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
             <element signature="method#isStandard#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;method#getType#0;class#BufferedImage#0" expanded="false" />
-            <element signature="e#34806#34807#0" expanded="false" />
-            <element signature="e#34838#34839#0" expanded="false" />
-            <element signature="e#35026#35027#0" expanded="false" />
-            <element signature="e#35059#35060#0" expanded="false" />
-            <element signature="e#35251#35252#0" expanded="false" />
-            <element signature="e#35280#35281#0" expanded="false" />
-            <element signature="e#36532#36533#0" expanded="false" />
-            <element signature="e#36588#36589#0" expanded="false" />
-            <element signature="e#37710#37711#0" expanded="false" />
-            <element signature="e#37786#37787#0" expanded="false" />
-            <element signature="e#43542#43543#0" expanded="false" />
-            <element signature="e#43582#43583#0" expanded="false" />
-            <element signature="e#43750#43751#0" expanded="false" />
-            <element signature="e#43791#43792#0" expanded="false" />
-            <element signature="e#44009#44010#0" expanded="false" />
-            <element signature="e#44049#44050#0" expanded="false" />
-            <element signature="e#44270#44271#0" expanded="false" />
-            <element signature="e#44311#44312#0" expanded="false" />
-            <element signature="e#45978#45979#0" expanded="false" />
-            <element signature="e#46018#46019#0" expanded="false" />
-            <element signature="e#47114#47115#0" expanded="false" />
-            <element signature="e#47153#47154#0" expanded="false" />
-            <element signature="e#49022#49023#0" expanded="false" />
-            <element signature="e#49078#49079#0" expanded="false" />
-            <element signature="e#51113#51114#0" expanded="false" />
-            <element signature="e#51140#51141#0" expanded="false" />
-            <element signature="e#52035#52036#0" expanded="false" />
-            <element signature="e#52074#52075#0" expanded="false" />
-            <element signature="e#52315#52316#0" expanded="false" />
-            <element signature="e#52354#52355#0" expanded="false" />
-            <element signature="e#52609#52610#0" expanded="false" />
-            <element signature="e#52655#52656#0" expanded="false" />
-            <element signature="e#52841#52842#0" expanded="false" />
-            <element signature="e#52865#52866#0" expanded="false" />
-            <element signature="e#53051#53052#0" expanded="false" />
-            <element signature="e#53075#53076#0" expanded="false" />
-            <element signature="e#53267#53268#0" expanded="false" />
-            <element signature="e#53291#53292#0" expanded="false" />
-            <element signature="e#53483#53484#0" expanded="false" />
-            <element signature="e#53507#53508#0" expanded="false" />
-            <element signature="e#53638#53639#0" expanded="false" />
-            <element signature="e#53677#53678#0" expanded="false" />
-            <element signature="e#53811#53812#0" expanded="false" />
-            <element signature="e#53851#53852#0" expanded="false" />
-            <element signature="e#54124#54125#0" expanded="false" />
-            <element signature="e#54180#54181#0" expanded="false" />
-            <element signature="e#54453#54454#0" expanded="false" />
-            <element signature="e#54509#54510#0" expanded="false" />
-            <element signature="e#62680#62681#0" expanded="false" />
-            <element signature="e#62707#62708#0" expanded="false" />
-            <element signature="e#63179#63180#0" expanded="false" />
-            <element signature="e#63208#63209#0" expanded="false" />
-            <element signature="e#64145#64146#0" expanded="false" />
-            <element signature="e#64196#64197#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -971,7 +842,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1047#1048#0" expanded="false" />
+            <element signature="e#1085#1086#0" expanded="false" />
+            <element signature="e#1130#1131#0" expanded="false" />
+            <element signature="e#1168#1169#0" expanded="false" />
+            <element signature="e#5108#5109#0" expanded="false" />
+            <element signature="e#5149#5150#0" expanded="false" />
+            <element signature="e#5219#5220#0" expanded="false" />
+            <element signature="e#5268#5269#0" expanded="false" />
+            <element signature="e#5335#5336#0" expanded="false" />
+            <element signature="e#5379#5380#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -987,8 +870,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="313" column="0" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
           <folding>
-            <element signature="e#0#64200#0" expanded="false" />
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_CUSTOM#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_INT_RGB#0;class#BufferedImage#0" expanded="false" />
@@ -1003,60 +884,6 @@
             <element signature="method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
             <element signature="method#isStandard#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;method#getType#0;class#BufferedImage#0" expanded="false" />
-            <element signature="e#34806#34807#0" expanded="false" />
-            <element signature="e#34838#34839#0" expanded="false" />
-            <element signature="e#35026#35027#0" expanded="false" />
-            <element signature="e#35059#35060#0" expanded="false" />
-            <element signature="e#35251#35252#0" expanded="false" />
-            <element signature="e#35280#35281#0" expanded="false" />
-            <element signature="e#36532#36533#0" expanded="false" />
-            <element signature="e#36588#36589#0" expanded="false" />
-            <element signature="e#37710#37711#0" expanded="false" />
-            <element signature="e#37786#37787#0" expanded="false" />
-            <element signature="e#43542#43543#0" expanded="false" />
-            <element signature="e#43582#43583#0" expanded="false" />
-            <element signature="e#43750#43751#0" expanded="false" />
-            <element signature="e#43791#43792#0" expanded="false" />
-            <element signature="e#44009#44010#0" expanded="false" />
-            <element signature="e#44049#44050#0" expanded="false" />
-            <element signature="e#44270#44271#0" expanded="false" />
-            <element signature="e#44311#44312#0" expanded="false" />
-            <element signature="e#45978#45979#0" expanded="false" />
-            <element signature="e#46018#46019#0" expanded="false" />
-            <element signature="e#47114#47115#0" expanded="false" />
-            <element signature="e#47153#47154#0" expanded="false" />
-            <element signature="e#49022#49023#0" expanded="false" />
-            <element signature="e#49078#49079#0" expanded="false" />
-            <element signature="e#51113#51114#0" expanded="false" />
-            <element signature="e#51140#51141#0" expanded="false" />
-            <element signature="e#52035#52036#0" expanded="false" />
-            <element signature="e#52074#52075#0" expanded="false" />
-            <element signature="e#52315#52316#0" expanded="false" />
-            <element signature="e#52354#52355#0" expanded="false" />
-            <element signature="e#52609#52610#0" expanded="false" />
-            <element signature="e#52655#52656#0" expanded="false" />
-            <element signature="e#52841#52842#0" expanded="false" />
-            <element signature="e#52865#52866#0" expanded="false" />
-            <element signature="e#53051#53052#0" expanded="false" />
-            <element signature="e#53075#53076#0" expanded="false" />
-            <element signature="e#53267#53268#0" expanded="false" />
-            <element signature="e#53291#53292#0" expanded="false" />
-            <element signature="e#53483#53484#0" expanded="false" />
-            <element signature="e#53507#53508#0" expanded="false" />
-            <element signature="e#53638#53639#0" expanded="false" />
-            <element signature="e#53677#53678#0" expanded="false" />
-            <element signature="e#53811#53812#0" expanded="false" />
-            <element signature="e#53851#53852#0" expanded="false" />
-            <element signature="e#54124#54125#0" expanded="false" />
-            <element signature="e#54180#54181#0" expanded="false" />
-            <element signature="e#54453#54454#0" expanded="false" />
-            <element signature="e#54509#54510#0" expanded="false" />
-            <element signature="e#62680#62681#0" expanded="false" />
-            <element signature="e#62707#62708#0" expanded="false" />
-            <element signature="e#63179#63180#0" expanded="false" />
-            <element signature="e#63208#63209#0" expanded="false" />
-            <element signature="e#64145#64146#0" expanded="false" />
-            <element signature="e#64196#64197#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1246,21 +1073,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ButtonHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/awt/Graphics2D.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="563" column="34" selection-start-line="563" selection-start-column="34" selection-end-line="563" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#54934#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1268,7 +1084,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,8 +1100,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
           <folding>
-            <element signature="e#0#64200#0" expanded="false" />
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_CUSTOM#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;field#TYPE_INT_RGB#0;class#BufferedImage#0" expanded="false" />
@@ -1301,60 +1114,6 @@
             <element signature="method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
             <element signature="method#isStandard#0;class#BufferedImage#0" expanded="false" />
             <element signature="docComment;method#getType#0;class#BufferedImage#0" expanded="false" />
-            <element signature="e#34806#34807#0" expanded="false" />
-            <element signature="e#34838#34839#0" expanded="false" />
-            <element signature="e#35026#35027#0" expanded="false" />
-            <element signature="e#35059#35060#0" expanded="false" />
-            <element signature="e#35251#35252#0" expanded="false" />
-            <element signature="e#35280#35281#0" expanded="false" />
-            <element signature="e#36532#36533#0" expanded="false" />
-            <element signature="e#36588#36589#0" expanded="false" />
-            <element signature="e#37710#37711#0" expanded="false" />
-            <element signature="e#37786#37787#0" expanded="false" />
-            <element signature="e#43542#43543#0" expanded="false" />
-            <element signature="e#43582#43583#0" expanded="false" />
-            <element signature="e#43750#43751#0" expanded="false" />
-            <element signature="e#43791#43792#0" expanded="false" />
-            <element signature="e#44009#44010#0" expanded="false" />
-            <element signature="e#44049#44050#0" expanded="false" />
-            <element signature="e#44270#44271#0" expanded="false" />
-            <element signature="e#44311#44312#0" expanded="false" />
-            <element signature="e#45978#45979#0" expanded="false" />
-            <element signature="e#46018#46019#0" expanded="false" />
-            <element signature="e#47114#47115#0" expanded="false" />
-            <element signature="e#47153#47154#0" expanded="false" />
-            <element signature="e#49022#49023#0" expanded="false" />
-            <element signature="e#49078#49079#0" expanded="false" />
-            <element signature="e#51113#51114#0" expanded="false" />
-            <element signature="e#51140#51141#0" expanded="false" />
-            <element signature="e#52035#52036#0" expanded="false" />
-            <element signature="e#52074#52075#0" expanded="false" />
-            <element signature="e#52315#52316#0" expanded="false" />
-            <element signature="e#52354#52355#0" expanded="false" />
-            <element signature="e#52609#52610#0" expanded="false" />
-            <element signature="e#52655#52656#0" expanded="false" />
-            <element signature="e#52841#52842#0" expanded="false" />
-            <element signature="e#52865#52866#0" expanded="false" />
-            <element signature="e#53051#53052#0" expanded="false" />
-            <element signature="e#53075#53076#0" expanded="false" />
-            <element signature="e#53267#53268#0" expanded="false" />
-            <element signature="e#53291#53292#0" expanded="false" />
-            <element signature="e#53483#53484#0" expanded="false" />
-            <element signature="e#53507#53508#0" expanded="false" />
-            <element signature="e#53638#53639#0" expanded="false" />
-            <element signature="e#53677#53678#0" expanded="false" />
-            <element signature="e#53811#53812#0" expanded="false" />
-            <element signature="e#53851#53852#0" expanded="false" />
-            <element signature="e#54124#54125#0" expanded="false" />
-            <element signature="e#54180#54181#0" expanded="false" />
-            <element signature="e#54453#54454#0" expanded="false" />
-            <element signature="e#54509#54510#0" expanded="false" />
-            <element signature="e#62680#62681#0" expanded="false" />
-            <element signature="e#62707#62708#0" expanded="false" />
-            <element signature="e#63179#63180#0" expanded="false" />
-            <element signature="e#63208#63209#0" expanded="false" />
-            <element signature="e#64145#64146#0" expanded="false" />
-            <element signature="e#64196#64197#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1393,7 +1152,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="173" column="4" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1047#1048#0" expanded="false" />
+            <element signature="e#1085#1086#0" expanded="false" />
+            <element signature="e#1130#1131#0" expanded="false" />
+            <element signature="e#1168#1169#0" expanded="false" />
+            <element signature="e#5108#5109#0" expanded="false" />
+            <element signature="e#5149#5150#0" expanded="false" />
+            <element signature="e#5219#5220#0" expanded="false" />
+            <element signature="e#5268#5269#0" expanded="false" />
+            <element signature="e#5335#5336#0" expanded="false" />
+            <element signature="e#5379#5380#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1413,24 +1184,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HW.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/jre/lib/rt.jar!/sun/awt/image/ByteInterleavedRaster.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.851852">
-          <caret line="359" column="61" selection-start-line="359" selection-start-column="61" selection-end-line="359" selection-end-column="61" />
+        <state vertical-scroll-proportion="-14.407408">
+          <caret line="800" column="22" selection-start-line="800" selection-start-column="22" selection-end-line="800" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ButtonHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/transform/Magnify.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/transform/Magnify.java">
+    <entry file="file://$PROJECT_DIR$/src/transform/Reduce.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24214418">
-          <caret line="54" column="61" selection-start-line="54" selection-start-column="61" selection-end-line="54" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HW.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7034483">
+          <caret line="377" column="32" selection-start-line="377" selection-start-column="32" selection-end-line="377" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2412#2413#0" expanded="true" />
-            <element signature="e#2464#2465#0" expanded="true" />
           </folding>
         </state>
       </provider>

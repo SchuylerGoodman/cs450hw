@@ -11,6 +11,7 @@ import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
 import transform.ITransform;
 import transform.Magnify;
+import transform.Reduce;
 
 import java.awt.*;
 import java.awt.image.*;
@@ -359,8 +360,28 @@ public class HW
 
 		BufferedImage outputImage = magnify.apply(inputImage);
 
+		CS450.setImageB(outputImage);
+
 	}
 
+	public void doReduce() {
+
+		String f = CS450.prompt("Magnification factor (positive integer)", "2");
+		if (f == null) return;
+		int factor = Integer.parseInt(f);
+
+		// Just quit if input is invalid - I ain't got the time
+		if (factor < 1) { return; }
+
+		BufferedImage inputImage = CS450.getImageA();
+
+		ITransform reduce = new Reduce(factor, factor);
+
+		BufferedImage outputImage = reduce.apply(inputImage);
+
+		CS450.setImageB(outputImage);
+
+	}
 
 }
 
