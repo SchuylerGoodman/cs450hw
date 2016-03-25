@@ -77,7 +77,7 @@ public class Magnify implements ITransform {
     }
 
     private static float getInverseCoordinate(int inputDimMax, int outputDimMax, float coordinate) {
-        if (outputDimMax <= 1f) return 0f;
+        if (outputDimMax <= 1) return 0f;
         return coordinate * ((inputDimMax - 1) / (float) (outputDimMax - 1));
     }
 

@@ -12,6 +12,7 @@ import org.jfree.data.statistics.HistogramType;
 import transform.ITransform;
 import transform.Magnify;
 import transform.Reduce;
+import transform.Rotate;
 
 import java.awt.*;
 import java.awt.image.*;
@@ -381,6 +382,21 @@ public class HW
 
 		CS450.setImageB(outputImage);
 
+	}
+
+	public void doRotate() {
+
+		String d = CS450.prompt("Amount of rotation (in degrees)", "15");
+		if (d == null) return;
+		int degrees = Integer.parseInt(d);
+
+		BufferedImage inputImage = CS450.getImageA();
+
+		ITransform rotate = new Rotate((float) Math.toRadians(degrees));
+
+		BufferedImage outputImage = rotate.apply(inputImage);
+
+		CS450.setImageB(outputImage);
 	}
 
 }
