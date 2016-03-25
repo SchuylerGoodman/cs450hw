@@ -76,8 +76,9 @@ public class Reduce implements ITransform {
         return output;
     }
 
-    private static float getInverseCoordinate(float inputDimMax, float outputDimMax, float coordinate) {
-        return coordinate * ((inputDimMax - 1) / (outputDimMax - 1));
+    private static float getInverseCoordinate(int inputDimMax, int outputDimMax, float coordinate) {
+        if (outputDimMax <= 1f) return 0f;
+        return (coordinate + 1) * ((inputDimMax - 1) / (float) (outputDimMax - 1));
     }
 
     /**

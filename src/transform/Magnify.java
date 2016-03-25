@@ -76,13 +76,13 @@ public class Magnify implements ITransform {
         return output;
     }
 
-    private static float getInverseCoordinate(float inputDimMax, float outputDimMax, float coordinate) {
-        return coordinate * ((inputDimMax - 1) / (outputDimMax - 1));
+    private static float getInverseCoordinate(int inputDimMax, int outputDimMax, float coordinate) {
+        if (outputDimMax <= 1f) return 0f;
+        return coordinate * ((inputDimMax - 1) / (float) (outputDimMax - 1));
     }
 
     /**
      * Calculate value at coordinates v, w given surrounding values via bilinear interpolation.
-     *
      * @param s00 = value to top-left of v, w
      * @param s01 = value to top-right of v, w
      * @param s10 = value to bottom-left of v, w
